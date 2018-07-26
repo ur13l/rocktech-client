@@ -1,0 +1,26 @@
+doctype html
+.section.background-blockchain
+.section
+    .container
+        form((submit)="form.valid && submit()", #form)
+            .row
+                h1.primary-color-text Completa el formulario de registro
+                p.primary-color-text Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que 
+                    | nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.
+            .row 
+                label.gotham-light.primary-color-text(for="idea") Nombre de tu idea
+                .input-group.col-xs-12
+                    input.form-control#idea(type='text', name="idea", aria-label='idea-name', required)
+                label.gotham-light.primary-color-text(for="objective") ¿Qué problema resuelve?
+                .input-group.col-xs-12
+                    textarea.form-control#objective(type='text', name="objective", aria-label='objective', required)
+                label.gotham-light.primary-color-text(for="idea") Nombre de tu idea
+                .input-group.col-xs-12
+                    input.form-control#idea(type='text', name="idea", aria-label='idea-name', required)
+                label.gotham-light.primary-color-text(for="idea") Nombre de tu idea
+                .input-group.col-xs-12
+                    input.form-control#idea(type='text', name="idea", aria-label='idea-name', required)
+                label.gotham-light.primary-color-text(for="idea") Nombre de tu idea
+                .input-group.col-xs-12
+                    input.form-control#idea(type='text', name="idea", aria-label='idea-name', required)
+

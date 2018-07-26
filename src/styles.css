@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'Gotham Light';
+    src: url('assets/fonts/Gotham-Light.otf')
+}
+
+html, body{
+    height: 100% !important;
+    margin:0;
+    font-family: 'Gotham Light'
+}
+
+
+.bg-primary-color {
+    background-color:#18467a!important;
+}
+
+.primary-color-text {
+    color: #18467a;
+}
+
+.light {
+    font-weight: 100;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.general-container {
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+}
+.center-container * {
+    text-align: center;
+}
+
+.gotham-light {
+    font-family: 'Gotham Light'
+}
+
+* { box-sizing: border-box; }
+.video-background {
+  background: #000;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -99;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+* {
+    color: white;
+}
+
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.primary-link {
+    border-radius: 12px;
+    background: #18467a;
+    color:white;
+    padding:15px;
+    height: 54px;
+    margin: 12px;
+    transition: all 0.3s;
+}
+
+.primary-link:hover {
+    background: #00265a;
+    color:white;
+    text-decoration: none;
+}
+
+.background-blockchain {
+     /* The image used */
+     background-image: url("assets/img/blockchain.jpg");
+
+     /* Set a specific height */
+     min-height: 500px; 
+ 
+     /* Create the parallax scrolling effect */
+     background-attachment: fixed;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+.navbar {
+    border-radius: 0;
+    margin:0;
+    padding:0;
+}
