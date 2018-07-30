@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ngx-custom-validators';
+import { FormWizardModule } from 'angular2-wizard';
+
 import { routes } from './app.routes';
 
 import {VgCoreModule} from 'videogular2/core';
@@ -17,6 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ConvocatoriaComponent } from './convocatoria/convocatoria.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegistroComponent } from './registro/registro.component';
+import { StepperComponent } from './stepper/stepper.component';
 
 
 @NgModule({
@@ -27,7 +32,8 @@ import { RegistroComponent } from './registro/registro.component';
     NavbarComponent,
     ConvocatoriaComponent,
     FooterComponent,
-    RegistroComponent
+    RegistroComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,9 @@ import { RegistroComponent } from './registro/registro.component';
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
+    FormWizardModule,
+    FormsModule,
+    CustomFormsModule,
     RouterModule.forRoot(routes),
 
   ],

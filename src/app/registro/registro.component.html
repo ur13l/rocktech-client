@@ -1,35 +1,74 @@
 <!DOCTYPE html>
+<navbar></navbar>
 <div class="section background-blockchain"></div>
 <div class="section">
   <div class="container">
-    <form (submit)="form.valid &amp;&amp; submit()" #form>
+    <stepper></stepper>
+    <form (submit)="form.valid &amp;&amp; submit()" #form="ngForm">
       <div class="row">
-        <h1 class="primary-color-text">Completa el formulario de registro</h1>
-        <p class="primary-color-text">
-          Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.</p>
+        <div class="col-xs-12">
+          <h1 class="primary-color-text">Completa el formulario de registro</h1>
+          <p class="primary-color-text">
+            Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.</p>
+        </div>
       </div>
       <div class="row"> 
-        <label class="gotham-light primary-color-text" for="idea">Nombre de tu idea</label>
-        <div class="input-group col-xs-12">
-          <input class="form-control" id="idea" type="text" name="idea" aria-label="idea-name" required>
-        </div>
-        <label class="gotham-light primary-color-text" for="objective">¿Qué problema resuelve?</label>
-        <div class="input-group col-xs-12">
-          <textarea class="form-control" id="objective" type="text" name="objective" aria-label="objective" required></textarea>
-        </div>
-        <label class="gotham-light primary-color-text" for="idea">Nombre de tu idea</label>
-        <div class="input-group col-xs-12">
-          <input class="form-control" id="idea" type="text" name="idea" aria-label="idea-name" required>
-        </div>
-        <label class="gotham-light primary-color-text" for="idea">Nombre de tu idea</label>
-        <div class="input-group col-xs-12">
-          <input class="form-control" id="idea" type="text" name="idea" aria-label="idea-name" required>
-        </div>
-        <label class="gotham-light primary-color-text" for="idea">Nombre de tu idea</label>
-        <div class="input-group col-xs-12">
-          <input class="form-control" id="idea" type="text" name="idea" aria-label="idea-name" required>
+        <div class="col-md-6 hidden-xs hidden-sm"><img class="img-fluid" src="assets/img/neuron.jpg"></div>
+        <div class="col-xs-12 col-md-6">
+          <label class="gotham-light bold primary-color-text" for="project_name">Nombre de tu idea</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="project_name" type="text" name="project_name" aria-label="project-name" [(ngModel)]="project.name" #projectNameInput="ngModel" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; projectNameInput.errors?.required">Este campo es obligatorio</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="objective">¿Cuál es la problemática que resuelve?</label>
+          <div class="input-group col-xs-12">
+            <textarea class="form-control" id="objective" type="text" name="objective" aria-label="objective" #objectiveInput="ngModel" [(ngModel)]="project.objective" required></textarea>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; objectiveInput.errors?.required">Este campo es obligatorio</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="leader_name">Nombre completo del líder de la neurona</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="leader_name" type="text" name="leader_name" aria-label="leader-name" [(ngModel)]="user.name" #leaderNameInput="ngModel" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; leaderNameInput.errors?.required">Este campo es obligatorio</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="email">Correo electrónico</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="email" type="email" name="email" aria-label="email" [(ngModel)]="user.email" #emailInput="ngModel" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; emailInput.errors?.required">Este campo es obligatorio</label>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; emailInput.errors?.email">Debes introducir un email válido</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="idea">Contraseña</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="password" type="password" name="password" aria-label="password" #passwordInput="ngModel" [(ngModel)]="user.password" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; passwordInput.errors?.required">Este campo es obligatorio</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="confirm_password">Confirmar contraseña</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="confirm_password" type="text" name="confirm_password" aria-label="confirm_password" [(ngModel)]="user.confirm_password" #confirmPasswordInput="ngModel" equalTo="passwordInput" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; confirmPasswordInput.errors?.required">Este campo es obligatorio</label>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; confirmPasswordInput.errors?.equalTo">Las contraseñas no coinciden</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="neuron_name">Nombre de tu neurona</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="neuron_name" type="text" name="neuron_name" aria-label="neuron-name" [(ngModel)]="neuron.name" #neuronNameInput="ngModel" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; neuronNameInput.errors?.required">Este campo es obligatorio</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text">Integrante(s) de la neurona</label>
+          <div *ngFor="let member of neuron.members">
+            <div class="input-group col-xs-12">
+              <input class="form-control" type="text" aria-label="member-name" [(ngModel)]="member.name" required><span class="input-group-addon item-button" (click)="removeMember(member)" *ngIf="neuron.members.length &gt; 1"><i class="fa fa-close"></i></span>
+            </div>
+            <div class="space"></div>
+          </div>
+          <div class="text-center"><a (click)="addMember()">Agregar integrante</a></div><br>
+          <label class="gotham-light bold primary-color-text" for="url">URL del video</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="video" type="text" name="video" aria-label="video" #videoInput="ngModel" [(ngModel)]="project.video" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; neuronNameInput.errors?.required">Este campo es obligatorio                        </label>
+          </div><span class="light primary-color-text">Puedes subir tu video en el formato y plataforma que desees (Google Drive, WeTransfer, YouTube, etc.),  solamente necesitas proporcionarnos un enlace público para consultarlo.</span><br>
+          <button class="col-xs-12 btn btn-primary btn-large" type="submit">Registrar</button>
         </div>
       </div>
     </form>
   </div>
 </div>
+<app-footer></app-footer>

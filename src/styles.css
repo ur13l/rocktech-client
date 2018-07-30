@@ -13,11 +13,11 @@ html, body{
 
 
 .bg-primary-color {
-    background-color:#18467a!important;
+    background-color:#002751!important;
 }
 
 .primary-color-text {
-    color: #18467a;
+    color: #002751;
 }
 
 .light {
@@ -85,7 +85,7 @@ html, body{
 
 .primary-link {
     border-radius: 12px;
-    background: #18467a;
+    background: #002751;
     color:white;
     padding:15px;
     height: 54px;
@@ -94,20 +94,49 @@ html, body{
 }
 
 .primary-link:hover {
-    background: #00265a;
+    background: #010710;
     color:white;
     text-decoration: none;
 }
 
+.btn-primary {
+    background: #002751;
+    transition: all 0.3s;
+    padding: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.space {
+    height: 20px;
+}
+
+.fa {
+    color: #002751;
+}
+
+.btn-primary:hover {
+    background: #010710;
+
+}
+
+.item-button {
+    cursor: pointer;
+
+}
+
+.btn-large {
+    padding: 15px;
+}
+
 .background-blockchain {
      /* The image used */
-     background-image: url("assets/img/blockchain.jpg");
+     background-image: url("assets/img/blockchain1.jpg");
 
      /* Set a specific height */
-     min-height: 500px; 
+     min-height: 300px; 
  
      /* Create the parallax scrolling effect */
-     background-attachment: fixed;
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
@@ -117,4 +146,20 @@ html, body{
     border-radius: 0;
     margin:0;
     padding:0;
+}
+
+.btn-secondary.float-left, .btn-secondary.float-right {
+    display: none;
+}
+
+.input-error {
+    color: red;
+}
+
+.active[_ngcontent-c5] {
+    border-bottom-color: #002751 !important;
+}
+
+a {
+    cursor: pointer;
 }

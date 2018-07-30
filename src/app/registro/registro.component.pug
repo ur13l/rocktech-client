@@ -1,26 +1,131 @@
 doctype html
+navbar
 .section.background-blockchain
 .section
     .container
-        form((submit)="form.valid && submit()", #form)
+        stepper
+        form((submit)="form.valid && submit()", #form="ngForm")
             .row
-                h1.primary-color-text Completa el formulario de registro
-                p.primary-color-text Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que 
-                    | nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.
+                .col-xs-12
+                    h1.primary-color-text Completa el formulario de registro
+                    p.primary-color-text Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que 
+                        | nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.
             .row 
-                label.gotham-light.primary-color-text(for="idea") Nombre de tu idea
-                .input-group.col-xs-12
-                    input.form-control#idea(type='text', name="idea", aria-label='idea-name', required)
-                label.gotham-light.primary-color-text(for="objective") ¿Qué problema resuelve?
-                .input-group.col-xs-12
-                    textarea.form-control#objective(type='text', name="objective", aria-label='objective', required)
-                label.gotham-light.primary-color-text(for="idea") Nombre de tu idea
-                .input-group.col-xs-12
-                    input.form-control#idea(type='text', name="idea", aria-label='idea-name', required)
-                label.gotham-light.primary-color-text(for="idea") Nombre de tu idea
-                .input-group.col-xs-12
-                    input.form-control#idea(type='text', name="idea", aria-label='idea-name', required)
-                label.gotham-light.primary-color-text(for="idea") Nombre de tu idea
-                .input-group.col-xs-12
-                    input.form-control#idea(type='text', name="idea", aria-label='idea-name', required)
+                .col-md-6.hidden-xs.hidden-sm
+                    img.img-fluid(src="assets/img/neuron.jpg")
+                .col-xs-12.col-md-6
+                    label.gotham-light.bold.primary-color-text(for="project_name") Nombre de tu idea
+                    .input-group.col-xs-12
+                        input.form-control#project_name(type='text', 
+                            name="project_name", 
+                            aria-label='project-name', 
+                            [(ngModel)]="project.name",
+                            #projectNameInput="ngModel",
+                            required)
+                        label.input-error(*ngIf="form.submitted && projectNameInput.errors?.required") Este campo es obligatorio
+                    br
+                    label.gotham-light.bold.primary-color-text(for="objective") ¿Cuál es la problemática que resuelve?
+                    .input-group.col-xs-12
+                        textarea.form-control#objective(
+                            type='text', 
+                            name="objective", 
+                            aria-label='objective', 
+                            #objectiveInput="ngModel",
+                            [(ngModel)]="project.objective",
+                            required)
+                        label.input-error(*ngIf="form.submitted && objectiveInput.errors?.required") Este campo es obligatorio
+                            
+                    br
+                    label.gotham-light.bold.primary-color-text(for="leader_name") Nombre completo del líder de la neurona
+                    .input-group.col-xs-12
+                        input.form-control#leader_name(
+                            type='text', 
+                            name="leader_name", 
+                            aria-label='leader-name', 
+                            [(ngModel)]="user.name",
+                            #leaderNameInput="ngModel",
+                            required)
+                        label.input-error(*ngIf="form.submitted && leaderNameInput.errors?.required") Este campo es obligatorio
+                        
+                    br
+                    label.gotham-light.bold.primary-color-text(for="email") Correo electrónico
+                    .input-group.col-xs-12
+                        input.form-control#email(
+                            type='email', 
+                            name="email", 
+                            aria-label='email',
+                            [(ngModel)]='user.email', 
+                            #emailInput="ngModel",
+                            required)
+                        label.input-error(*ngIf="form.submitted && emailInput.errors?.required") Este campo es obligatorio
+                        label.input-error(*ngIf="form.submitted && emailInput.errors?.email") Debes introducir un email válido
+                    
+                    br
+                    label.gotham-light.bold.primary-color-text(for="idea") Contraseña
+                    .input-group.col-xs-12
+                        input.form-control#password(
+                            type='password', 
+                            name="password", 
+                            aria-label='password',
+                            #passwordInput="ngModel",
+                            [(ngModel)]="user.password", 
+                            required)
+                        label.input-error(*ngIf="form.submitted && passwordInput.errors?.required") Este campo es obligatorio
+                        
+                    br
+                    label.gotham-light.bold.primary-color-text(for="confirm_password") Confirmar contraseña
+                    .input-group.col-xs-12
+                        input.form-control#confirm_password(
+                            type='text', 
+                            name="confirm_password", 
+                            aria-label='confirm_password', 
+                            [(ngModel)]="user.confirm_password",
+                            #confirmPasswordInput="ngModel",
+                            equalTo="passwordInput",
+                            required)
+                        label.input-error(*ngIf="form.submitted && confirmPasswordInput.errors?.required") Este campo es obligatorio
+                        label.input-error(*ngIf="form.submitted && confirmPasswordInput.errors?.equalTo") Las contraseñas no coinciden
+                    br
+                    label.gotham-light.bold.primary-color-text(for="neuron_name") Nombre de tu neurona
+                    .input-group.col-xs-12
+                        input.form-control#neuron_name(
+                            type='text', 
+                            name="neuron_name", 
+                            aria-label='neuron-name', 
+                            [(ngModel)]="neuron.name",
+                            #neuronNameInput="ngModel",
+                            required)
+                        label.input-error(*ngIf="form.submitted && neuronNameInput.errors?.required") Este campo es obligatorio
+                        
+                    br
+                    label.gotham-light.bold.primary-color-text() Integrante(s) de la neurona
+                    div(*ngFor="let member of neuron.members")
+                        .input-group.col-xs-12
+                            input.form-control(
+                                type='text',
+                                aria-label='member-name', 
+                                [(ngModel)]="member.name",
+                                required) 
+                            span.input-group-addon.item-button((click)="removeMember(member)", *ngIf="neuron.members.length > 1")
+                                i.fa.fa-close
+                        .space
+                                             
+                    div.text-center
+                        a((click)="addMember()") Agregar integrante
 
+                    br
+                    label.gotham-light.bold.primary-color-text(for="url") URL del video
+                    .input-group.col-xs-12
+                        input.form-control#video(
+                            type='text', 
+                            name="video",   
+                            aria-label='video', 
+                            #videoInput="ngModel",
+                            [(ngModel)]="project.video"  
+                            required)   
+                        label.input-error(*ngIf="form.submitted && neuronNameInput.errors?.required") Este campo es obligatorio                        
+                    span.light.primary-color-text Puedes subir tu video en el formato y plataforma que desees (Google Drive, WeTransfer, YouTube, etc.),  solamente necesitas proporcionarnos un enlace público para consultarlo.
+                    br
+                    button.col-xs-12.btn.btn-primary.btn-large(type="submit") Registrar
+
+app-footer
