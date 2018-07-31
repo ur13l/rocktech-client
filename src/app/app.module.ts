@@ -22,6 +22,11 @@ import { ConvocatoriaComponent } from './convocatoria/convocatoria.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegistroComponent } from './registro/registro.component';
 import { StepperComponent } from './stepper/stepper.component';
+import { FirstStageCompleteComponent } from './first-stage-complete/first-stage-complete.component';
+import { UserService } from './_services/user.service';
+import { HttpClient } from './_utils/http-client';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 
 
 @NgModule({
@@ -33,7 +38,9 @@ import { StepperComponent } from './stepper/stepper.component';
     ConvocatoriaComponent,
     FooterComponent,
     RegistroComponent,
-    StepperComponent
+    StepperComponent,
+    FirstStageCompleteComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -44,10 +51,14 @@ import { StepperComponent } from './stepper/stepper.component';
     FormWizardModule,
     FormsModule,
     CustomFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
 
   ],
-  providers: [],
+  providers: [
+    UserService,
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

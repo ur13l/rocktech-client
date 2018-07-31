@@ -20,6 +20,10 @@ html, body{
     color: #002751;
 }
 
+.accent-color-text {
+    color: #2895B9;
+}
+
 .light {
     font-weight: 100;
 }
@@ -140,6 +144,19 @@ html, body{
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
+}
+
+.background-primary-color {
+   background: #002751;
+}
+
+.background-white {
+    background: white;
+}
+
+.form-container {
+    padding-top:25px;
+    border: #efefef 1px solid;
 }
 
 .navbar {

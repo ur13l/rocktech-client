@@ -1,19 +1,29 @@
 doctype html
+loading-screen([loading]="loading")
 navbar
 .section.background-blockchain
 .section
     .container
+        br
         stepper
-        form((submit)="form.valid && submit()", #form="ngForm")
-            .row
+        br
+        br
+        form((submit)="form.valid && submit($event)", #form="ngForm", id="ngForm")
+            .row.hidden-md.hidden-lg
                 .col-xs-12
                     h1.primary-color-text Completa el formulario de registro
                     p.primary-color-text Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que 
                         | nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.
-            .row 
+                    br
+            .row.row-eq-height.background-primary-color
                 .col-md-6.hidden-xs.hidden-sm
-                    img.img-fluid(src="assets/img/neuron.jpg")
-                .col-xs-12.col-md-6
+                    .col-xs-12
+                        h1 Completa el formulario de registro
+                        p Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que 
+                            | nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.
+            
+                .col-xs-12.col-md-6.background-white.form-container
+                    .input-error(*ngIf="errorMessage") {{errorMessage}}
                     label.gotham-light.bold.primary-color-text(for="project_name") Nombre de tu idea
                     .input-group.col-xs-12
                         input.form-control#project_name(type='text', 
@@ -56,7 +66,7 @@ navbar
                             aria-label='email',
                             [(ngModel)]='user.email', 
                             #emailInput="ngModel",
-                            required)
+                            required, email)
                         label.input-error(*ngIf="form.submitted && emailInput.errors?.required") Este campo es obligatorio
                         label.input-error(*ngIf="form.submitted && emailInput.errors?.email") Debes introducir un email válido
                     
@@ -76,12 +86,12 @@ navbar
                     label.gotham-light.bold.primary-color-text(for="confirm_password") Confirmar contraseña
                     .input-group.col-xs-12
                         input.form-control#confirm_password(
-                            type='text', 
+                            type='password', 
                             name="confirm_password", 
                             aria-label='confirm_password', 
                             [(ngModel)]="user.confirm_password",
                             #confirmPasswordInput="ngModel",
-                            equalTo="passwordInput",
+                            [equalTo]="passwordInput",
                             required)
                         label.input-error(*ngIf="form.submitted && confirmPasswordInput.errors?.required") Este campo es obligatorio
                         label.input-error(*ngIf="form.submitted && confirmPasswordInput.errors?.equalTo") Las contraseñas no coinciden
@@ -99,14 +109,16 @@ navbar
                         
                     br
                     label.gotham-light.bold.primary-color-text() Integrante(s) de la neurona
-                    div(*ngFor="let member of neuron.members")
+                    div(*ngFor="let member of neuron.members;let index = index;trackBy:trackByIndex;")
                         .input-group.col-xs-12
                             input.form-control(
                                 type='text',
                                 aria-label='member-name', 
-                                [(ngModel)]="member.name",
+                                [(ngModel)]="neuron.members[index].name",
+                                [name]="'member' + index",
+                                [disabled]="index==0"
                                 required) 
-                            span.input-group-addon.item-button((click)="removeMember(member)", *ngIf="neuron.members.length > 1")
+                            span.input-group-addon.item-button((click)="removeMember(member)", *ngIf="neuron.members.length > 1 && index != 0")
                                 i.fa.fa-close
                         .space
                                              
@@ -122,8 +134,9 @@ navbar
                             aria-label='video', 
                             #videoInput="ngModel",
                             [(ngModel)]="project.video"  
-                            required)   
-                        label.input-error(*ngIf="form.submitted && neuronNameInput.errors?.required") Este campo es obligatorio                        
+                            required, url)   
+                        label.input-error(*ngIf="form.submitted && videoInput.errors?.required") Este campo es obligatorio                        
+                        label.input-error(*ngIf="form.submitted && videoInput.errors?.url") Debes introducir una URL válida                        
                     span.light.primary-color-text Puedes subir tu video en el formato y plataforma que desees (Google Drive, WeTransfer, YouTube, etc.),  solamente necesitas proporcionarnos un enlace público para consultarlo.
                     br
                     button.col-xs-12.btn.btn-primary.btn-large(type="submit") Registrar

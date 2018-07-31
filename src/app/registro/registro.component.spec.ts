@@ -22,4 +22,10 @@ describe('RegistroComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should confirm passwords', () => {
+    component.user.password = '123asdZXC';
+    component.user.confirm_password = '123asdZXC';
+    expect(component.form.controls['confirmPasswordInput'].valid).toBeTruthy();
+  })
 });
