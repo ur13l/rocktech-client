@@ -61,7 +61,7 @@
             <label class="input-error" *ngIf="form.submitted &amp;&amp; neuronNameInput.errors?.required">Este campo es obligatorio</label>
           </div><br>
           <label class="gotham-light bold primary-color-text">Integrante(s) de la neurona</label>
-          <div *ngFor="let member of neuron.members;let index = index;trackBy:trackByIndex;">
+          <div *ngFor="let member of neuron.members;let index = index;">
             <div class="input-group col-xs-12">
               <input class="form-control" type="text" aria-label="member-name" [(ngModel)]="neuron.members[index].name" [name]="'member' + index" [disabled]="index==0" required><span class="input-group-addon item-button" (click)="removeMember(member)" *ngIf="neuron.members.length &gt; 1 &amp;&amp; index != 0"><i class="fa fa-close"></i></span>
             </div>
