@@ -1,0 +1,21 @@
+doctype html
+loading-screen([loading]="loading")
+navbar
+.section.background-blockchain
+.section()
+    .container
+        br
+        .row.text-center(*ngIf="activated", [@bounceInUp]="bounceInUp")
+            img(src="assets/img/success.png", width="120")
+            .space
+            p.primary-color-text Hemos verificado tu cuenta, por favor ahora espera a que nos pongamos en contacto contigo para informarte cuál es el siguiente paso. 
+            .space
+            a.primary-link([routerLink]="['/accede']") Iniciar sesión
+        
+        .row.text-center(*ngIf="invalidToken", [@bounceInUp]="bounceInUp")
+            img(src="assets/img/error.png", width="120")    
+            .space        
+            p.primary-color-text Nos has proporcionado un token inválido, es posible que no podamos validar tu cuenta de correo, por favor da click en el enlace enviado a tu correo, revisa tu bandeja de entrada. 
+                | Si el problema persiste, por favor, ponte en contacto con nosotros escribiéndonos a management@rocktech.mx. Gracias.
+            .space
+            a.primary-link([routerLink]="['/']") Regresar

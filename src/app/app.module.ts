@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppComponent } from './app.component';
@@ -27,6 +28,10 @@ import { UserService } from './_services/user.service';
 import { HttpClient } from './_utils/http-client';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import { ActivateUserComponent } from './activate-user/activate-user.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
+import { RestorePasswordComponent } from './restore-password/restore-password.component';
 
 
 @NgModule({
@@ -40,7 +45,11 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     RegistroComponent,
     StepperComponent,
     FirstStageCompleteComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    ActivateUserComponent,
+    SignInComponent,
+    RecoverPasswordComponent,
+    RestorePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +61,7 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     FormsModule,
     CustomFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes),
 
   ],

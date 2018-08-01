@@ -3,7 +3,7 @@ vg-player
     video#myVideo(autoplay, muted, loop)
         source(src='assets/video/blockchain.mp4', type='video/mp4')
         |         Your browser does not support HTML5 video.
-.general-container
+.general-container([@fadeIn]="fadeIn")
     .center-container
         h1.gotham-light R O C K T E C H
         .links 

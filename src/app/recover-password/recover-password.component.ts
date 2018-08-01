@@ -3,14 +3,16 @@ import { trigger, transition, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 
 @Component({
-  selector: 'app-convocatoria',
-  templateUrl: './convocatoria.component.html',
-  styleUrls: ['./convocatoria.component.css'],
+  selector: 'app-recover-password',
+  templateUrl: './recover-password.component.html',
+  styleUrls: ['./recover-password.component.css'],
   animations: [
     trigger('fadeIn', [transition('* => *', useAnimation(fadeIn))])
   ],
 })
-export class ConvocatoriaComponent implements OnInit {
+export class RecoverPasswordComponent implements OnInit {
+
+  public formSent : boolean = false;
 
   constructor() { }
 

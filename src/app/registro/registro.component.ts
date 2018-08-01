@@ -1,15 +1,20 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Title, DOCUMENT } from '@angular/platform-browser';
 import { User } from '../_models/user';
 import { Neuron } from '../_models/neuron';
 import { Project } from '../_models/project';
 import { UserService } from '../_services/user.service';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { fadeIn } from 'ng-animate';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.css'],
+  animations: [
+    trigger('fadeIn', [transition('* => *', useAnimation(fadeIn))])
+  ],
 })
 export class RegistroComponent implements OnInit {
   public user : User;
@@ -19,18 +24,22 @@ export class RegistroComponent implements OnInit {
   public errorMessage : string;
   @ViewChild('form') public form : FormGroup;
 
+
   constructor(
     private title : Title,
     private userService : UserService,
-    private router : Router
+    private router : Router,
   ) { 
     this.user = new User({});
     this.neuron = new Neuron({});
     this.project = new Project({});
     this.neuron.members.push(this.user);
+    this.title.setTitle("Registro");
   }
 
   ngOnInit() {
+    window.scroll(0, 0);
+
   }
 
   /** 
@@ -59,7 +68,7 @@ export class RegistroComponent implements OnInit {
       .subscribe(
         data => {
           if(data.data) {
-            this.router.navigate(['/first-stage-complete']);          
+            this.router.navigate(['/segunda-etapa']);          
           }
           else if(data.errors && data.errors.length > 0 ){
             this.errorMessage = data.errors[0];

@@ -1,4 +1,5 @@
-form-wizard()
-    wizard-step([title]="'Etapa 1'")
-    wizard-step([title]="'Etapa 2'")
-    wizard-step([title]="'Etapa 3'")
+doctype html
+form-wizard(#stepper)
+    wizard-step([title]="'Etapa 1'", #step1)
+    wizard-step([title]="'Etapa 2'", #step2)
+    wizard-step([title]="'Etapa 3'", #step3)

@@ -1,9 +1,12 @@
 navbar
 .section.background-blockchain
 .section
-    .container
+    .container([@fadeIn]="fadeIn")
+        br
         .row
-            img.banner-logo(src="./assets/img/brainrace.png")
+            .text-center
+                img.banner-logo(src="./assets/img/brainrace.png")
+            .space
             p.primary-color-text If humans are to survive, we must merge with machines.
             p.primary-color-text Rocktech te invita a participar en Brain Race, la carrera del blockchain, para participar solo necesitas tener una gran idea que pueda ser implementada utilizando la 
                 | tecnología blockchain. La carrera cuenta con tres etapas, en cada una de ellas iremos buscando las mejores ideas, y de las cuales saldrán tres ideas ganadoras que se llevarán un gran premio.

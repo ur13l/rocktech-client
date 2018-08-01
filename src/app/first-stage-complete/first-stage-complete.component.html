@@ -1,3 +1,15 @@
-<p>
-  first-stage-complete works!
-</p>
+<!DOCTYPE html>
+<loading-screen [loading]="loading"></loading-screen>
+<navbar></navbar>
+<div class="section background-blockchain"></div>
+<div class="section">
+  <div class="container"><br><br>
+    <div class="row text-center">
+      <div><img src="assets/img/success.png" [@bounceInUp]="bounceInUp" width="120"></div>
+    </div><br>
+    <div class="row">
+      <p class="primary-color-text text-center" [@bounceInUp]="bounceInUp">
+        Tu registro ha sido aceptado, se te ha envíado un correo para que actives tu cuenta, nos mantendremos en contacto para enviarte más adelante te comunicaremos si tu idea ha sido considerada para la siguiente ronda.            </p>
+    </div>
+  </div>
+</div>

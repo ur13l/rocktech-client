@@ -2,7 +2,7 @@ doctype html
 loading-screen([loading]="loading")
 navbar
 .section.background-blockchain
-.section
+.section([@fadeIn]="fadeIn")
     .container
         br
         stepper
@@ -14,15 +14,17 @@ navbar
                     h1.primary-color-text Completa el formulario de registro
                     p.primary-color-text Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que 
                         | nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.
-                    br
+            .row.text-center
+                img.img-fluid(src="assets/img/brainrace.png", style="width:50%")                            
+            br
             .row.row-eq-height.background-primary-color
                 .col-md-6.hidden-xs.hidden-sm
                     .col-xs-12
+                        br
                         h1 Completa el formulario de registro
                         p Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que 
                             | nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.
-            
-                .col-xs-12.col-md-6.background-white.form-container
+                .col-xs-12.col-md-6.form-container.background-white
                     .input-error(*ngIf="errorMessage") {{errorMessage}}
                     label.gotham-light.bold.primary-color-text(for="project_name") Nombre de tu idea
                     .input-group.col-xs-12
@@ -42,6 +44,7 @@ navbar
                             aria-label='objective', 
                             #objectiveInput="ngModel",
                             [(ngModel)]="project.objective",
+                            rows=5,
                             required)
                         label.input-error(*ngIf="form.submitted && objectiveInput.errors?.required") Este campo es obligatorio
                             

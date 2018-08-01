@@ -88,17 +88,20 @@ html, body{
 }
 
 .primary-link {
-    border-radius: 12px;
+    border-radius: 5px;
     background: #002751;
     color:white;
     padding:15px;
+    padding-left: 100px;
+    padding-right: 100px;
     height: 54px;
     margin: 12px;
+    border: none;
     transition: all 0.3s;
 }
 
 .primary-link:hover {
-    background: #010710;
+    background: #2895B9;
     color:white;
     text-decoration: none;
 }
@@ -109,6 +112,7 @@ html, body{
     padding: 5px;
     margin-top: 15px;
     margin-bottom: 15px;
+    border:none;
 }
 
 .space {
@@ -120,7 +124,7 @@ html, body{
 }
 
 .btn-primary:hover {
-    background: #010710;
+    background: #2895B9;
 
 }
 
@@ -179,4 +183,20 @@ html, body{
 
 a {
     cursor: pointer;
+}
+
+input, textarea {
+    background: none !important;
+    border-bottom-color: #002751 !important;
+    border-width: 0 0 1px 0 !important;
+    box-shadow: none !important;
+    transition: all 3s;
+}
+
+input {
+    height: 45px !important;    
+}
+
+input:focus, textarea:focus {
+    border-bottom-color: #2895B9 !important;
 }

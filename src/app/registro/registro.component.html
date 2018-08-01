@@ -2,7 +2,7 @@
 <loading-screen [loading]="loading"></loading-screen>
 <navbar></navbar>
 <div class="section background-blockchain"></div>
-<div class="section">
+<div class="section" [@fadeIn]="fadeIn">
   <div class="container"><br>
     <stepper></stepper><br><br>
     <form (submit)="form.valid &amp;&amp; submit($event)" #form="ngForm" id="ngForm">
@@ -10,18 +10,19 @@
         <div class="col-xs-12">
           <h1 class="primary-color-text">Completa el formulario de registro</h1>
           <p class="primary-color-text">
-            Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.</p><br>
+            Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.</p>
         </div>
       </div>
+      <div class="row text-center"><img class="img-fluid" src="assets/img/brainrace.png" style="width:50%"></div><br>
       <div class="row row-eq-height background-primary-color">
         <div class="col-md-6 hidden-xs hidden-sm">
-          <div class="col-xs-12">
+          <div class="col-xs-12"><br>
             <h1>Completa el formulario de registro</h1>
             <p>
               Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.</p>
           </div>
         </div>
-        <div class="col-xs-12 col-md-6 background-white form-container">
+        <div class="col-xs-12 col-md-6 form-container background-white">
           <div class="input-error" *ngIf="errorMessage">{{errorMessage}}</div>
           <label class="gotham-light bold primary-color-text" for="project_name">Nombre de tu idea</label>
           <div class="input-group col-xs-12">
@@ -30,7 +31,7 @@
           </div><br>
           <label class="gotham-light bold primary-color-text" for="objective">¿Cuál es la problemática que resuelve?</label>
           <div class="input-group col-xs-12">
-            <textarea class="form-control" id="objective" type="text" name="objective" aria-label="objective" #objectiveInput="ngModel" [(ngModel)]="project.objective" required></textarea>
+            <textarea class="form-control" id="objective" type="text" name="objective" aria-label="objective" #objectiveInput="ngModel" [(ngModel)]="project.objective" rows="5" required></textarea>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; objectiveInput.errors?.required">Este campo es obligatorio</label>
           </div><br>
           <label class="gotham-light bold primary-color-text" for="leader_name">Nombre completo del líder de la neurona</label>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<loading-screen [loading]="loading"></loading-screen>
+<navbar></navbar>
+<section [@fadeIn]="fadeIn">
+  <div class="container">
+    <form (submit)="form.valid &amp;&amp; submit($event)" #form="ngForm" id="ngForm"><br><br>
+      <div class="row text-center"></div><br>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 form-container" style="padding:30px">
+          <div class="text-center"><img class="img-fluid" src="assets/img/brainrace.png" style="width:70%"></div>
+          <h1 class="primary-color-text">Accede a tu cuenta</h1><br>
+          <div class="input-error">{{errorMessage}}</div>
+          <label class="gotham-light bold primary-color-text" for="email">Correo electrónico</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="email" type="email" name="email" aria-label="email" [(ngModel)]="email" #emailInput="ngModel" required email>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; emailInput.errors?.required">Este campo es obligatorio</label>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; emailInput.errors?.email">Debes introducir un email válido</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="idea">Contraseña</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="password" type="password" name="password" aria-label="password" #passwordInput="ngModel" [(ngModel)]="password" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; passwordInput.errors?.required">Este campo es obligatorio</label>
+          </div><br><a class="primary-color-text" [routerLink]="['/recuperar-contrasena']">¿Olvidaste tu contraseña?</a>
+          <div class="space"></div>
+          <button class="col-xs-12 btn btn-primary btn-large" type="submit">Iniciar sesión</button>
+          <div class="space" style="margin-bottom:80px;"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
