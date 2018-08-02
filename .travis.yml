@@ -1,7 +1,13 @@
 language: node_js
 node_js:
 - node
-
+# safelist
+branches:
+  only:
+  - master
+  - test
+  - prod
+  
 before_script:
 - gcloud config set project `rocktech-210118`
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then curl https://sdk.cloud.google.com | bash;
@@ -9,12 +15,19 @@ before_script:
 - gcloud auth activate-service-account --key-file client-secret.json
 - npm install -g --silent @angular/cli
 - npm install
+
+stages: 
+- test
+- prod
+
 script:
 - npm run pug-it
 - ng build --prod
 if: branch = test
+  script:
   - gcloud compute scp . jorge_diaz@rocktech:/var/www/html/rocktech-client-test
 if: branch = prod
+  script:
   - gcloud compute scp . jorge_diaz@rocktech:/var/www/html/rocktech-client
 
 notifications:
