@@ -1,10 +1,7 @@
 language: node_js
 node_js:
 - node
-branches:
-  only:
-  - prod
-  - test
+
 before_script:
 - gcloud config set project `rocktech-210118`
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then curl https://sdk.cloud.google.com | bash;
