@@ -5,7 +5,7 @@ navbar
 .section([@fadeIn]="fadeIn")
     .container
         br
-        stepper
+        stepper([activeStep]="0")
         br
         br
         form((submit)="form.valid && submit($event)", #form="ngForm", id="ngForm")
@@ -74,7 +74,7 @@ navbar
                         label.input-error(*ngIf="form.submitted && emailInput.errors?.email") Debes introducir un email válido
                     
                     br
-                    label.gotham-light.bold.primary-color-text(for="idea") Contraseña
+                    label.gotham-light.bold.primary-color-text(for="password") Contraseña
                     .input-group.col-xs-12
                         input.form-control#password(
                             type='password', 

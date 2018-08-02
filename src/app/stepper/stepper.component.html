@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<form-wizard #stepper>
-  <wizard-step [title]="'Etapa 1'" #step1></wizard-step>
-  <wizard-step [title]="'Etapa 2'" #step2></wizard-step>
-  <wizard-step [title]="'Etapa 3'" #step3></wizard-step>
-</form-wizard>
+<div class="row">
+  <div class="col-xs-4 text-center"> 
+    <div class="primary-color-text">Etapa 1</div>
+    <div class="base-primary" [class.active]="activeStep&gt;=0"></div>
+  </div>
+  <div class="col-xs-4 text-center"> 
+    <div class="primary-color-text">Etapa 2</div>
+    <div class="base-primary" [class.active]="activeStep&gt;=1"></div>
+  </div>
+  <div class="col-xs-4 text-center"> 
+    <div class="primary-color-text">Etapa 3</div>
+    <div class="base-primary" [class.active]="activeStep&gt;=2"></div>
+  </div>
+</div>

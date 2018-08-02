@@ -1,0 +1,10 @@
+.base-primary {
+    margin: 10px 0 0 0;
+    padding: 0;
+    height: 3px;
+    background: #efefef;
+}
+
+.active {
+    background: #002751;
+}

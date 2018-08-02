@@ -4,7 +4,7 @@
 <div class="section background-blockchain"></div>
 <div class="section" [@fadeIn]="fadeIn">
   <div class="container"><br>
-    <stepper></stepper><br><br>
+    <stepper [activeStep]="0"></stepper><br><br>
     <form (submit)="form.valid &amp;&amp; submit($event)" #form="ngForm" id="ngForm">
       <div class="row hidden-md hidden-lg">
         <div class="col-xs-12">
@@ -45,7 +45,7 @@
             <label class="input-error" *ngIf="form.submitted &amp;&amp; emailInput.errors?.required">Este campo es obligatorio</label>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; emailInput.errors?.email">Debes introducir un email válido</label>
           </div><br>
-          <label class="gotham-light bold primary-color-text" for="idea">Contraseña</label>
+          <label class="gotham-light bold primary-color-text" for="password">Contraseña</label>
           <div class="input-group col-xs-12">
             <input class="form-control" id="password" type="password" name="password" aria-label="password" #passwordInput="ngModel" [(ngModel)]="user.password" required>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; passwordInput.errors?.required">Este campo es obligatorio</label>

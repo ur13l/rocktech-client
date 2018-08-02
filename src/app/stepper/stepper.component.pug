@@ -1,5 +1,11 @@
 doctype html
-form-wizard(#stepper)
-    wizard-step([title]="'Etapa 1'", #step1)
-    wizard-step([title]="'Etapa 2'", #step2)
-    wizard-step([title]="'Etapa 3'", #step3)
+.row
+    .col-xs-4.text-center 
+        div.primary-color-text Etapa 1
+        .base-primary([class.active]="activeStep>=0")
+    .col-xs-4.text-center 
+        div.primary-color-text Etapa 2
+        .base-primary([class.active]="activeStep>=1")
+    .col-xs-4.text-center 
+        div.primary-color-text Etapa 3
+        .base-primary([class.active]="activeStep>=2")

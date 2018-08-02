@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ngx-custom-validators';
-import { FormWizardModule } from 'angular2-wizard';
 
 import { routes } from './app.routes';
 
@@ -57,7 +56,6 @@ import { RestorePasswordComponent } from './restore-password/restore-password.co
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    FormWizardModule,
     FormsModule,
     CustomFormsModule,
     HttpClientModule,

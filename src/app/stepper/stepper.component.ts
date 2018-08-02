@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { WizardComponent, WizardStepComponent } from 'angular2-wizard';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 @Component({
   selector: 'stepper',
@@ -7,6 +6,7 @@ import { WizardComponent, WizardStepComponent } from 'angular2-wizard';
   styleUrls: ['./stepper.component.css']
 })
 export class StepperComponent implements OnInit {
+  @Input('activeStep') public activeStep : number;
   constructor() { }
 
   ngOnInit() {
