@@ -9,9 +9,9 @@ branches:
   - prod
   
 before_script:
-- gcloud config set project `rocktech-210118`
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then curl https://sdk.cloud.google.com | bash;
   fi
+- gcloud config set project `rocktech-210118`
 - gcloud auth activate-service-account --key-file client-secret.json
 - npm install -g --silent @angular/cli
 - npm install
