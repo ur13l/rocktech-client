@@ -20,15 +20,17 @@ stages:
 - test
 - prod
 
-script:
-- npm run pug-it
-- ng build --prod
 if: branch = test
   script:
+  - npm run pug-it
+  - ng build --prod
   - gcloud compute scp . jorge_diaz@rocktech:/var/www/html/rocktech-client-test
+
 if: branch = prod
   script:
-  - gcloud compute scp . jorge_diaz@rocktech:/var/www/html/rocktech-client
+    - npm run pug-it
+    - ng build --prod
+    - gcloud compute scp . jorge_diaz@rocktech:/var/www/html/rocktech-client-test
 
 notifications:
 email:
