@@ -33,23 +33,23 @@ jobs:
   include:
   - stage: test
     script:
+    - ng build --prod --env=test
+    - cp .htaccess /dist/
     - gcloud compute scp --recurse ./dist jorge_diaz@rocktech:/var/www/html/dist-rocktech-test
       --zone us-east1-b
     - gcloud compute ssh jorge_diaz@rocktech --zone us-east1-b -- '(rm -rf /var/www/html/rocktech-client-test || true)
       && mkdir /var/www/html/rocktech-client-test && mv /var/www/html/dist-rocktech-test
       /var/www/html/rocktech-client-test/dist'
-    - ng build --prod --env=test
-    - cp .htaccess /dist/
-    
   - stage: prod
     script:
+    - ng build --prod --env=prod  
+    - cp .htaccess /dist/
     - gcloud compute scp --recurse ./dist jorge_diaz@rocktech:/var/www/html/dist-rocktech
       --zone us-east1-b
     - gcloud compute ssh jorge_diaz@rocktech --zone us-east1-b -- '(rm -rf /var/www/html/rocktech-client || true)
       && mkdir /var/www/html/rocktech-client && mv /var/www/html/dist-rocktech
       /var/www/html/rocktech-client/dist'
-    - ng build --prod --env=prod  
-    - cp .htaccess /dist/
+    
     
 notifications: 
 email:
