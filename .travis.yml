@@ -21,8 +21,6 @@ before_script:
     sudo apt-get update && sudo apt-get install google-cloud-sdk;
   fi
 - gcloud config set project 'rocktech-210118'
-- tar -xzf credentials.tar.gz
-- gcloud auth activate-service-account --key-file client-secret.json
 - npm install -g --silent @angular/cli
 - npm install
 
@@ -35,12 +33,16 @@ jobs:
     - stage: test
       script:
       - npm run pug-it
-      - ng build --prod
+      - ng build
+      - tar -xzf credentials.tar.gz
+      - gcloud auth activate-service-account --key-file client-secret.json
       - gcloud compute scp . jorge_diaz@rocktech:/var/www/html/rocktech-client-test
     - stage: prod
       script:
       - npm run pug-it
-      - ng build --prod
+      - ng build
+      - tar -xzf credentials.tar.gz
+      - gcloud auth activate-service-account --key-file client-secret.json
       - gcloud compute scp . jorge_diaz@rocktech:/var/www/html/rocktech-client-test
 
 stages:
