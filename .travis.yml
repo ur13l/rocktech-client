@@ -22,6 +22,10 @@ before_script:
   fi
 - npm install -g --silent @angular/cli
 - npm install
+- tar -xzf credentials.tar.gz
+- ssh-keygen -q -N "" -f ~/.ssh/google_compute_engine
+- gcloud config set project 'rocktech-210118'
+- gcloud auth activate-service-account --key-file client-secret.json
 
 stages: 
 - test
@@ -33,21 +37,14 @@ jobs:
       script:
       - npm run pug-it
       - ng build
-      - tar -xzf credentials.tar.gz
-      - ssh-keygen -q -N "" -f ~/.ssh/google_compute_engine
-      - gcloud config set project 'rocktech-210118'
-      - gcloud auth activate-service-account --key-file client-secret.json
-      - ls
-      - gcloud compute scp rocktech-client jorge_diaz@rocktech:/var/www/html/rocktech-client-test
+      - gcloud compute ssh jorge_diaz@rocktech -- 'rm -r /var/www/html/rocktech-client-test && mkdir /var/www/html/rocktech-client-test'
+      - gcloud compute scp --recurse ./dist jorge_diaz@rocktech:/var/www/html/rocktech-client-test/dist
     - stage: prod
       script:
       - npm run pug-it
       - ng build
-      - tar -xzf credentials.tar.gz
-      - ssh-keygen -q -N "" -f ~/.ssh/google_compute_engine
-      - gcloud config set project 'rocktech-210118'
-      - gcloud auth activate-service-account --key-file client-secret.json
-      - gcloud compute scp -r rocktech-client jorge_diaz@rocktech:/var/www/html/rocktech-client-test
+      - gcloud compute ssh jorge_diaz@rocktech -- 'rm -r /var/www/html/rocktech-client && mkdir /var/www/html/rocktech-client'
+      - gcloud compute scp --recurse ./dist jorge_diaz@rocktech:/var/www/html/rocktech-client/dist
 
 stages:
   - name: test
