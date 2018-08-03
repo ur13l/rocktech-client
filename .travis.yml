@@ -20,7 +20,7 @@ before_script:
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - ;
     sudo apt-get update && sudo apt-get install google-cloud-sdk;
   fi
-- gcloud config set project `rocktech-210118`
+- gcloud config set project 'rocktech-210118'
 - gcloud auth activate-service-account --key-file client-secret.json
 - npm install -g --silent @angular/cli
 - npm install
