@@ -46,7 +46,7 @@ jobs:
       - ssh-keygen -q -N "" -f ~/.ssh/google_compute_engine
       - gcloud config set project 'rocktech-210118'
       - gcloud auth activate-service-account --key-file client-secret.json
-      - gcloud compute scp . jorge_diaz@rocktech:/var/www/html/rocktech-client-test
+      - gcloud compute scp -r rocktech-client jorge_diaz@rocktech:/var/www/html/rocktech-client-test
 
 stages:
   - name: test
