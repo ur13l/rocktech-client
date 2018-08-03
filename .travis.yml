@@ -36,16 +36,16 @@ jobs:
     script:
     - gcloud compute scp --recurse ./dist jorge_diaz@rocktech:/var/www/html/dist-rocktech-test
       --zone us-east1-b
-    - gcloud compute ssh jorge_diaz@rocktech --zone us-east1-b -- 'rm -rf /var/www/html/rocktech-client-test || true
+    - gcloud compute ssh jorge_diaz@rocktech --zone us-east1-b -- '(rm -rf /var/www/html/rocktech-client-test || true)
       && mkdir /var/www/html/rocktech-client-test && mv /var/www/html/dist-rocktech-test
       /var/www/html/rocktech-client-test/dist'
   - stage: prod
     script:
     - gcloud compute scp --recurse ./dist jorge_diaz@rocktech:/var/www/html/dist-rocktech
       --zone us-east1-b
-    - gcloud compute ssh jorge_diaz@rocktech --zone us-east1-b -- 'rm -r /var/www/html/rocktech-client || true
+    - gcloud compute ssh jorge_diaz@rocktech --zone us-east1-b -- '(rm -rf /var/www/html/rocktech-client || true)
       && mkdir /var/www/html/rocktech-client && mv /var/www/html/dist-rocktech
-      /var/www/html/rocktech-client-test/dist'
+      /var/www/html/rocktech-client/dist'
 notifications: 
 email:
   on_failure: change
