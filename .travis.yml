@@ -22,6 +22,9 @@ before_script:
 - ssh-keygen -q -N "" -f ~/.ssh/google_compute_engine
 - gcloud config set project 'rocktech-210118'
 - gcloud auth activate-service-account --key-file client-secret.json
+- npm run pug-it
+- ng build
+
 stages:
 - name: test
   if: branch = test
@@ -31,8 +34,6 @@ jobs:
   include:
   - stage: test
     script:
-    - npm run pug-it
-    - ng build
     - gcloud compute scp --recurse ./dist jorge_diaz@rocktech:/var/www/html/dist-rocktech-test
       --zone us-east1-b
     - gcloud compute ssh jorge_diaz@rocktech --zone us-east1-b -- 'rm -r /var/www/html/rocktech-client-test
@@ -40,11 +41,11 @@ jobs:
       /var/www/html/rocktech-client-test/dist'
   - stage: prod
     script:
-    - npm run pug-it
-    - ng build
-    - gcloud compute ssh jorge_diaz@rocktech -- 'rm -r /var/www/html/rocktech-client
-      && mkdir /var/www/html/rocktech-client'
-    - gcloud compute scp --recurse ./dist jorge_diaz@rocktech:/var/www/html/rocktech-client/dist
+    - gcloud compute scp --recurse ./dist jorge_diaz@rocktech:/var/www/html/dist-rocktech
+      --zone us-east1-b
+    - gcloud compute ssh jorge_diaz@rocktech --zone us-east1-b -- 'rm -r /var/www/html/rocktech-client
+      && mkdir /var/www/html/rocktech-client && mv /var/www/html/dist-rocktech
+      /var/www/html/rocktech-client-test/dist'
 notifications: 
 email:
   on_failure: change
