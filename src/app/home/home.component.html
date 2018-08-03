@@ -4,9 +4,11 @@
     <source src="assets/video/blockchain.mp4" type="video/mp4">        Your browser does not support HTML5 video.
   </video>
 </vg-player>
-<div class="general-container" [@fadeIn]="fadeIn">
+<div class="general-container" [@fadeIn]>
   <div class="center-container">
     <h1 class="gotham-light">R O C K T E C H</h1>
-    <div class="links"> <a [routerLink]="['/brain-race']">Brain Race</a><a [routerLink]="['/contacto']">Contacto</a></div>
+    <div class="links"> <a class="brain-race-font" [routerLink]="['/brain-race']">Brain Race</a>
+      <!--a([routerLink]="['/contacto']") Contacto-->
+    </div>
   </div>
 </div>

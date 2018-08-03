@@ -2,7 +2,7 @@ doctype html
 loading-screen([loading]="loading")
 navbar
 .section.background-blockchain
-.section([@fadeIn]="fadeIn")
+.section([@fadeIn])
     .container
         br
         stepper([activeStep]="0")
@@ -48,9 +48,9 @@ navbar
                             required)
                         label.input-error(*ngIf="form.submitted && objectiveInput.errors?.required") Este campo es obligatorio
                             
-                    br
-                    label.gotham-light.bold.primary-color-text(for="leader_name") Nombre completo del líder de la neurona
-                    .input-group.col-xs-12
+                    //br
+                    //label.gotham-light.bold.primary-color-text(for="leader_name") Nombre completo del líder de la neurona
+                    //.input-group.col-xs-12
                         input.form-control#leader_name(
                             type='text', 
                             name="leader_name", 
@@ -119,9 +119,8 @@ navbar
                                 aria-label='member-name', 
                                 [(ngModel)]="neuron.members[index].name",
                                 [name]="'member' + index",
-                                [disabled]="index==0"
                                 required) 
-                            span.input-group-addon.item-button((click)="removeMember(member)", *ngIf="neuron.members.length > 1 && index != 0")
+                            span.input-group-addon.item-button((click)="removeMember(member)", *ngIf="neuron.members.length > 1")
                                 i.fa.fa-close
                         .space
                                              

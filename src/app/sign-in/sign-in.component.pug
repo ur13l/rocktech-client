@@ -1,7 +1,7 @@
 doctype html
 loading-screen([loading]="loading")
 navbar
-section([@fadeIn]="fadeIn")
+section([@fadeIn])
     .container
         form((submit)="form.valid && submit($event)", #form="ngForm", id="ngForm")
             br

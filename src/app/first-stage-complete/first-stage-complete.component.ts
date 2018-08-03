@@ -14,6 +14,7 @@ import { bounce, bounceInDown, bounceInUp } from 'ng-animate';
 })
 export class FirstStageCompleteComponent implements OnInit {
   @ViewChild('stepper') public stepper : StepperComponent;
+  public loading : boolean = false;
 
   constructor() { }
 

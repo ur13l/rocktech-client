@@ -31,6 +31,7 @@ import { ActivateUserComponent } from './activate-user/activate-user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { RestorePasswordComponent } from './restore-password/restore-password.component';
+import { VideoModalComponent } from './video-modal/video-modal.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { RestorePasswordComponent } from './restore-password/restore-password.co
     ActivateUserComponent,
     SignInComponent,
     RecoverPasswordComponent,
-    RestorePasswordComponent
+    RestorePasswordComponent,
+    VideoModalComponent
   ],
   imports: [
     BrowserModule,

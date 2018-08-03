@@ -2,7 +2,7 @@
 <loading-screen [loading]="loading"></loading-screen>
 <navbar></navbar>
 <div class="section background-blockchain"></div>
-<div class="section" [@fadeIn]="fadeIn">
+<div class="section" [@fadeIn]>
   <div class="container"><br>
     <stepper [activeStep]="0"></stepper><br><br>
     <form (submit)="form.valid &amp;&amp; submit($event)" #form="ngForm" id="ngForm">
@@ -33,12 +33,20 @@
           <div class="input-group col-xs-12">
             <textarea class="form-control" id="objective" type="text" name="objective" aria-label="objective" #objectiveInput="ngModel" [(ngModel)]="project.objective" rows="5" required></textarea>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; objectiveInput.errors?.required">Este campo es obligatorio</label>
-          </div><br>
-          <label class="gotham-light bold primary-color-text" for="leader_name">Nombre completo del líder de la neurona</label>
-          <div class="input-group col-xs-12">
-            <input class="form-control" id="leader_name" type="text" name="leader_name" aria-label="leader-name" [(ngModel)]="user.name" #leaderNameInput="ngModel" required>
-            <label class="input-error" *ngIf="form.submitted &amp;&amp; leaderNameInput.errors?.required">Este campo es obligatorio</label>
-          </div><br>
+          </div>
+          <!--br-->
+          <!--label.gotham-light.bold.primary-color-text(for="leader_name") Nombre completo del líder de la neurona-->
+          <!--.input-group.col-xs-12
+          input.form-control#leader_name(
+              type='text', 
+              name="leader_name", 
+              aria-label='leader-name', 
+              [(ngModel)]="user.name",
+              #leaderNameInput="ngModel",
+              required)
+          label.input-error(*ngIf="form.submitted && leaderNameInput.errors?.required") Este campo es obligatorio
+          
+          --><br>
           <label class="gotham-light bold primary-color-text" for="email">Correo electrónico</label>
           <div class="input-group col-xs-12">
             <input class="form-control" id="email" type="email" name="email" aria-label="email" [(ngModel)]="user.email" #emailInput="ngModel" required email>
@@ -64,7 +72,7 @@
           <label class="gotham-light bold primary-color-text">Integrante(s) de la neurona</label>
           <div *ngFor="let member of neuron.members;let index = index;">
             <div class="input-group col-xs-12">
-              <input class="form-control" type="text" aria-label="member-name" [(ngModel)]="neuron.members[index].name" [name]="'member' + index" [disabled]="index==0" required><span class="input-group-addon item-button" (click)="removeMember(member)" *ngIf="neuron.members.length &gt; 1 &amp;&amp; index != 0"><i class="fa fa-close"></i></span>
+              <input class="form-control" type="text" aria-label="member-name" [(ngModel)]="neuron.members[index].name" [name]="'member' + index" required><span class="input-group-addon item-button" (click)="removeMember(member)" *ngIf="neuron.members.length &gt; 1"><i class="fa fa-close"></i></span>
             </div>
             <div class="space"></div>
           </div>

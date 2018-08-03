@@ -3,10 +3,10 @@ vg-player
     video#myVideo(autoplay, muted, loop)
         source(src='assets/video/blockchain.mp4', type='video/mp4')
         |         Your browser does not support HTML5 video.
-.general-container([@fadeIn]="fadeIn")
+.general-container([@fadeIn])
     .center-container
         h1.gotham-light R O C K T E C H
         .links 
-            a([routerLink]="['/brain-race']") Brain Race
-            a([routerLink]="['/contacto']") Contacto
+            a.brain-race-font([routerLink]="['/brain-race']") Brain Race
+            //a([routerLink]="['/contacto']") Contacto
 
