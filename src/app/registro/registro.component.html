@@ -10,7 +10,9 @@
         <div class="col-xs-12">
           <h1 class="primary-color-text">Completa el formulario de registro</h1>
           <p class="primary-color-text">
-            Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.</p>
+            Cuéntanos acerca de tu idea y llena los datos que te solicitamos para completar tu registro y entrar en la primera etapa de la carrera. Solo necesitas completar los detalles acerca de tu idea y tu neurona, además de compartirnos un video 
+            en el que nos expliques cómo funciona tu idea y cuál es la problemática que resuelve en un tiempo máximo de <b class="primary-color-text">2 minutos.</b>Posteriormente nos pondremos en contacto contigo para que nos compartas una demostración o la arquitectura de tu proyecto.
+          </p>
         </div>
       </div>
       <div class="row text-center"><img class="img-fluid" src="assets/img/brainrace.png" style="width:50%"></div><br>
@@ -19,7 +21,9 @@
           <div class="col-xs-12"><br>
             <h1>Completa el formulario de registro</h1>
             <p>
-              Cuéntanos acerca de tu idea y registra los datos que te solicitamos para poder entrar en la convocatoria, recuerda que en esta primera etapa solo requerimos que nos cuentes algo sobre tu genial idea, esta será evaluada para saber si pasas a la siguiente ronda, en donde tendrás que mandarnos una demostración de tu proyecto.</p>
+              Cuéntanos acerca de tu idea y llena los datos que te solicitamos para completar tu registro y entrar en la primera etapa de la carrera. Solo necesitas completar los detalles acerca de tu idea y tu neurona, además de compartirnos un video 
+              en el que nos expliques cómo funciona tu idea y cuál es la problemática que resuelve en un tiempo máximo de <b>2 minutos.</b>Posteriormente nos pondremos en contacto contigo para que nos compartas una demostración o la arquitectura de tu proyecto.
+            </p>
           </div>
         </div>
         <div class="col-xs-12 col-md-6 form-container background-white">
@@ -82,7 +86,8 @@
             <input class="form-control" id="video" type="text" name="video" aria-label="video" #videoInput="ngModel" [(ngModel)]="project.video" required url>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; videoInput.errors?.required">Este campo es obligatorio                        </label>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; videoInput.errors?.url">Debes introducir una URL válida                        </label>
-          </div><span class="light primary-color-text">Puedes subir tu video en el formato y plataforma que desees (Google Drive, WeTransfer, YouTube, etc.),  solamente necesitas proporcionarnos un enlace público para consultarlo.</span><br>
+          </div><span class="light primary-color-text">
+            Puedes subir tu video en el formato y plataforma que desees (Google Drive, WeTransfer, YouTube, etc.),  solamente necesitas proporcionarnos un enlace público para consultarlo. El máximo de tiempo por video es de 2 minutos.</span><br>
           <button class="col-xs-12 btn btn-primary btn-large" type="submit">Registrar</button>
         </div>
       </div>
