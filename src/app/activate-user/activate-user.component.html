@@ -6,7 +6,8 @@
   <div class="container"><br>
     <div class="row text-center" *ngIf="activated" [@bounceInUp]="bounceInUp"><img src="assets/img/success.png" width="120">
       <div class="space"></div>
-      <p class="primary-color-text">Hemos verificado tu cuenta. Nos pondremos en contacto contigo para informarte sobre el siguiente paso.</p>
+      <p class="primary-color-text">Activa tu cuenta a través del correo que te enviamos y espera noticias pronto. </p>
+      <p class="primary-color-text">¡Arranca la carrera!</p>
       <div class="space"></div><a class="primary-link" [routerLink]="['/accede']">Iniciar sesión</a>
     </div>
     <div class="row text-center" *ngIf="invalidToken" [@bounceInUp]="bounceInUp"><img src="assets/img/error.png" width="120">
