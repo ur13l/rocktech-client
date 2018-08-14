@@ -29,11 +29,11 @@ a {
     transition: all 0.3s
 }
 
-a:hover {
+a.brainrace:hover {
     background:linear-gradient(to right, rgb(0,183,188), rgb(2,17,29));
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 footer {
