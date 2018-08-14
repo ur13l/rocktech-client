@@ -38,8 +38,7 @@ a.brainrace:hover {
 
 footer {
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
     text-align: center;
     width:100%;
-    right: 0;
 }
