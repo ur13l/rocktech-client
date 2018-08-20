@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<loading-screen [loading]="loading"></loading-screen>
+<navbar></navbar>
+<div class="section">
+  <div class="container">
+    <h1 class="primary-color-text">Brain Race Registros</h1>
+    <ul>
+      <li *ngFor="let user of users">
+        <div class="item" [routerLink]="['/detalle-idea/' + user.id]" [class.approved]="user.approved">
+          <div class="row">
+            <div class="col-sm-12 col-md-8 primary-color-text">
+              <h3>{{user.neuron.name}}</h3>
+              <h4>{{user.neuron.project.name}}</h4>
+              <p class="primary-color-text">{{user.neuron.project.objective}}</p>
+              <p class="primary-color-text">Miembros: <span class="primary-color-text" *ngFor="let member of user.neuron.members; let index = index">{{member.name}}{{index == user.neuron.members.length - 1 ? '' : ', '}}</span></p>
+            </div>
+            <div class="col-sm-12 col-md-4 primary-color-text vcenter text-right">
+              <div class="primary-color-text" *ngIf="!user.approved">Pendiente de aprobar</div>
+              <div class="primary-color-text" *ngIf="user.approved">Idea aprobada</div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+doctype html
+loading-screen([loading]="loading")
+navbar
+.section
+    .container
+        .container.inner-container
+            h1.primary-color-text {{user?.neuron?.name}}
+            h2.primary-color-text {{user?.neuron?.project?.name}}
+            p.primary-color-text 
+                b.primary-color-text Objetivo: 
+                | {{user?.neuron?.project?.objective}}
+            p.primary-color-text 
+                b.primary-color-text Líder del equipo: 
+                | {{user?.name}}
+            p.primary-color-text 
+                b.primary-color-text Email: 
+                | {{user?.email}}
+            p.primary-color-text 
+                b.primary-color-text Integrantes de la neurona: 
+            ul 
+                li.primary-color-text(*ngFor="let member of user?.neuron?.members") {{member.name}}
+            p.primary-color-text 
+                b.primary-color-text Video: 
+                a([href]="user?.neuron?.project?.video") {{user?.neuron?.project?.video}} 
+            button.primary-button((click)="approve(user.id)", *ngIf="!user?.approved") Aprobar idea
+

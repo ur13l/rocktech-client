@@ -1,0 +1,17 @@
+.item {
+    border: 1px solid #efefef;
+    margin: 20px;
+    padding: 20px;
+    cursor: pointer;
+    height: 180px;
+}
+
+.approved {
+    border: 1px solid #209020;
+}
+
+.vcenter {
+    height: 135px;
+    display: flex;
+    align-items: center;
+}
