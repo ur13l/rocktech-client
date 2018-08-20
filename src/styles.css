@@ -108,7 +108,19 @@ html, body{
     transition: all 0.3s;
 }
 
-.primary-link:hover {
+.primary-button {
+    border-radius: 5px;
+    background: #002751;
+    color:white;
+    padding:15px;
+    height: 54px;
+    margin: 12px;
+    border: none;
+    transition: all 0.3s;
+}
+
+
+.primary-link:hover, .primary-button:hover {
     background: #2895B9;
     color:white;
     text-decoration: none;

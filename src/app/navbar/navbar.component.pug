@@ -3,6 +3,8 @@ nav.navbar.navbar-light.bg-primary-color
     span R O C K T E C H
   .collapse.navbar-collapse
     ul.navbar-nav.mr-auto
-    a.navbar-text.white-text([routerLink]="['/accede']")
+    a.navbar-text.white-text([routerLink]="['/accede']", *ngIf="!user")
       span Iniciar sesión
+    a.navbar-text.white-text((click)="logout()", *ngIf="user")
+      span Salir
 

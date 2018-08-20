@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<loading-screen [loading]="loading"></loading-screen>
+<navbar></navbar>
+<section [@fadeIn]>
+  <div class="container">
+    <form (submit)="form.valid &amp;&amp; submit($event)" #form="ngForm" id="ngForm"><br><br>
+      <div class="row text-center"></div><br>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 form-container" style="padding:30px">
+          <div class="text-center"><img class="img-fluid" src="assets/img/brainrace.png" style="width:70%"></div><br>
+          <p class="primary-color-text">Registra la información que te solicitamos, es importante enviar </p><br>
+          <div class="input-error">{{errorMessage}}</div>
+        </div>
+        <!--
+        label.gotham-light.bold.primary-color-text(for="email") Correo electrónico
+        .input-group.col-xs-12
+            input.form-control#email(
+                type='email', 
+                name="email", 
+                aria-label='email',
+                [(ngModel)]='email', 
+                #emailInput="ngModel",
+                required, email)
+            label.input-error(*ngIf="form.submitted && emailInput.errors?.required") Este campo es obligatorio
+            label.input-error(*ngIf="form.submitted && emailInput.errors?.email") Debes introducir un email válido
+        
+        br
+        label.gotham-light.bold.primary-color-text(for="idea") Contraseña
+        .input-group.col-xs-12
+            input.form-control#password(
+                type='password', 
+                name="password", 
+                aria-label='password',
+                #passwordInput="ngModel",
+                [(ngModel)]="password", 
+                required)
+            label.input-error(*ngIf="form.submitted && passwordInput.errors?.required") Este campo es obligatorio
+        br
+        a.primary-color-text([routerLink]="['/recuperar-contrasena']") ¿Olvidaste tu contraseña?
+        
+        .space
+        button.col-xs-12.btn.btn-primary.btn-large(type="submit") Iniciar sesión
+        .space(style="margin-bottom:80px;")
+        -->
+      </div>
+    </form>
+  </div>
+</section>

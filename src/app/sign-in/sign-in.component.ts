@@ -5,6 +5,7 @@ import { fadeIn } from 'ng-animate';
 import { UserService } from '../_services/user.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
+import { ROLE_ADMIN } from '../_models/user';
 
 @Component({
   selector: 'app-sign-in',
@@ -36,9 +37,18 @@ export class SignInComponent implements OnInit {
     this.loading = true;
     this.userService.login(this.email, this.password)
       .subscribe(response => {
-        if(response.data) {          
-          this.route.navigate(['/segunda-etapa']);
+        if(response.data) {
           this.loading = false;
+          let user = response.data;
+          if(user.approved) {
+            this.route.navigate(['/segunda-etapa-formulario']);
+          } 
+          else if (user.role == ROLE_ADMIN) {
+            this.route.navigate(['/admin-dashboard']);
+          } 
+          else {
+            this.route.navigate(['/segunda-etapa']);
+          }        
         }
         else {
           this.errorMessage = response.errors[0];

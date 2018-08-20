@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<loading-screen [loading]="loading"></loading-screen>
+<navbar></navbar>
+<div class="section">
+  <div class="container">
+    <div class="container inner-container">
+      <h1 class="primary-color-text">{{user?.neuron?.name}}</h1>
+      <h2 class="primary-color-text">{{user?.neuron?.project?.name}}</h2>
+      <p class="primary-color-text"> <b class="primary-color-text">Objetivo: </b>{{user?.neuron?.project?.objective}}</p>
+      <p class="primary-color-text"> <b class="primary-color-text">Líder del equipo: </b>{{user?.name}}</p>
+      <p class="primary-color-text"> <b class="primary-color-text">Email: </b>{{user?.email}}</p>
+      <p class="primary-color-text"> <b class="primary-color-text">Integrantes de la neurona: </b></p>
+      <ul> 
+        <li class="primary-color-text" *ngFor="let member of user?.neuron?.members">{{member.name}}</li>
+      </ul>
+      <p class="primary-color-text"> <b class="primary-color-text">Video: </b><a [href]="user?.neuron?.project?.video">{{user?.neuron?.project?.video}} </a></p>
+      <button class="primary-button" (click)="approve(user.id)" *ngIf="!user?.approved">Aprobar idea</button>
+    </div>
+  </div>
+</div>

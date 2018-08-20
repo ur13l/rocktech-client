@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 
 import { AppComponent } from './app.component';
@@ -32,6 +33,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { RestorePasswordComponent } from './restore-password/restore-password.component';
 import { VideoModalComponent } from './video-modal/video-modal.component';
+import { SecondFormComponent } from './second-form/second-form.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { IdeaDetailComponent } from './admin/idea-detail/idea-detail.component';
 
 
 @NgModule({
@@ -50,7 +54,10 @@ import { VideoModalComponent } from './video-modal/video-modal.component';
     SignInComponent,
     RecoverPasswordComponent,
     RestorePasswordComponent,
-    VideoModalComponent
+    VideoModalComponent,
+    SecondFormComponent,
+    AdminDashboardComponent,
+    IdeaDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +69,7 @@ import { VideoModalComponent } from './video-modal/video-modal.component';
     CustomFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CKEditorModule,
     RouterModule.forRoot(routes),
 
   ],

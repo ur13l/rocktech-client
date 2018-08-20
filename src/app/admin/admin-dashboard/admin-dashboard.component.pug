@@ -1,0 +1,19 @@
+doctype html
+loading-screen([loading]="loading")
+navbar
+.section
+    .container
+        h1.primary-color-text Brain Race Registros
+        ul
+            li(*ngFor="let user of users")
+                .item([routerLink]="['/detalle-idea/' + user.id]", [class.approved]="user.approved")
+                    .row
+                        .col-sm-12.col-md-8.primary-color-text
+                            h3 {{user.neuron.name}}
+                            h4 {{user.neuron.project.name}}
+                            p.primary-color-text {{user.neuron.project.objective}}
+                            p.primary-color-text Miembros: 
+                                span.primary-color-text(*ngFor="let member of user.neuron.members; let index = index") {{member.name}}{{index == user.neuron.members.length - 1 ? '' : ', '}}
+                        .col-sm-12.col-md-4.primary-color-text.vcenter.text-right
+                            .primary-color-text(*ngIf="!user.approved") Pendiente de aprobar
+                            .primary-color-text(*ngIf="user.approved") Idea aprobada

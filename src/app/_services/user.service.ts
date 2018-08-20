@@ -103,5 +103,35 @@ export class UserService extends BaseService{
           return null;
     }
     
+    /** 
+     * Get all users and his information
+    */
+    getUsers() {
+        return this.http.get<Response<User[]>>(this.BASE_URL + 'user')
+            .map(response => {
+                return response;
+            });
+    }
+
+    /** 
+     * Get user by id
+    */
+   getUserById(id : number) {
+    return this.http.get<Response<User>>(this.BASE_URL + 'user/' + id)
+        .map(response => {
+            return response;
+        });
+    }
+
+    /**
+     * Idea approval
+     * @param id 
+     */
+    approve(id : number) {
+        return this.http.post<Response<User>>(this.BASE_URL + 'user/approve', {id: id})
+            .map(response => {
+                return response;
+            });
+    }
 
 }
