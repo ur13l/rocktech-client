@@ -27,7 +27,7 @@ export class SecondFormComponent implements OnInit {
   public countries = [];
   public states = [];
   public loading : boolean = false;
-
+  public errorMessage : string = '';
 
   constructor(
     private userService : UserService,

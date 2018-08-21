@@ -41,7 +41,7 @@ section([@fadeIn])
                             type='url', 
                             name="doc", 
                             aria-label='doc',
-                            [(ngModel)]='user.doc', 
+                            [(ngModel)]='project.doc', 
                             #docInput="ngModel",
                             url)
                         label.input-error(*ngIf="form.submitted && docInput.errors?.url") Introduce una url válida

@@ -31,7 +31,7 @@ export class User {
     confirm_password : string;
     neuron_id : number;
     neuron : Neuron;
-    token : string;
+    token : string;xw
     role : number;
     approved : boolean;
     city : string;
