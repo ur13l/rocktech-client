@@ -220,3 +220,14 @@ input {
 input:focus, textarea:focus {
     border-bottom-color: #2895B9 !important;
 }
+
+select{
+    background: white !important;
+    color:#FFF;
+    text-shadow:0;
+    box-shadow: 0;
+}
+option:not(:checked) { 
+    background-color: white; 
+    color:#000;
+}

@@ -17,6 +17,9 @@ export class User {
         this.country = obj.country;
         this.phone = obj.phone;
         this.social_network = obj.social_network;
+        this.complementary = obj.complementary;
+        this.idea_complementation = obj.idea_complementation;
+        this.idea_validation = obj.idea_validation;
         if(obj.neuron) {
             this.neuron = new Neuron(obj.neuron);        
         }
@@ -36,4 +39,7 @@ export class User {
     country : string;
     phone : string;
     social_network : string;
+    complementary : string;
+    idea_complementation : boolean;
+    idea_validation : boolean;
 }

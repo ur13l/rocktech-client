@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  base_url: 'http://rocktech.api/api/'
+  base_url: 'http://rocktech.api/api/',
+  app_url: 'http://localhost:4300/'
 };

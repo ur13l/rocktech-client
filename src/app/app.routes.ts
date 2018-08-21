@@ -12,6 +12,7 @@ import { LoggedInGuardGuard } from "./_guards/logged-in-guard.guard";
 import { AdminGuardGuard } from "./_guards/admin-guard.guard";
 import { AdminDashboardComponent } from "./admin/admin-dashboard/admin-dashboard.component";
 import { IdeaDetailComponent } from "./admin/idea-detail/idea-detail.component";
+import { SecondStageCompleteComponent } from "./second-stage-complete/second-stage-complete.component";
 
 
 export const routes = [
@@ -31,7 +32,9 @@ export const routes = [
     //Session routes
     { path:'', canActivate: [LoggedInGuardGuard], children: [
         { path:'segunda-etapa', component: FirstStageCompleteComponent },
-        { path:'segunda-etapa-formulario', component: SecondFormComponent }
+        { path:'segunda-etapa-formulario', component: SecondFormComponent },
+        { path:'tercera-etapa', component: SecondStageCompleteComponent },
+        
     ]},
     //Admin routes
     { path:'', canActivate: [AdminGuardGuard], children: [

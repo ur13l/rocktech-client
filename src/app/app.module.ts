@@ -36,6 +36,7 @@ import { VideoModalComponent } from './video-modal/video-modal.component';
 import { SecondFormComponent } from './second-form/second-form.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { IdeaDetailComponent } from './admin/idea-detail/idea-detail.component';
+import { SecondStageCompleteComponent } from './second-stage-complete/second-stage-complete.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { IdeaDetailComponent } from './admin/idea-detail/idea-detail.component';
     VideoModalComponent,
     SecondFormComponent,
     AdminDashboardComponent,
-    IdeaDetailComponent
+    IdeaDetailComponent,
+    SecondStageCompleteComponent
   ],
   imports: [
     BrowserModule,

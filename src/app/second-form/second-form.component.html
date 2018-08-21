@@ -2,46 +2,72 @@
 <loading-screen [loading]="loading"></loading-screen>
 <navbar></navbar>
 <section [@fadeIn]>
-  <div class="container">
+  <div class="container"><br>
+    <stepper [activeStep]="1"></stepper>
     <form (submit)="form.valid &amp;&amp; submit($event)" #form="ngForm" id="ngForm"><br><br>
       <div class="row text-center"></div><br>
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 form-container" style="padding:30px">
           <div class="text-center"><img class="img-fluid" src="assets/img/brainrace.png" style="width:70%"></div><br>
-          <p class="primary-color-text">Registra la información que te solicitamos, es importante enviar </p><br>
+          <p class="primary-color-text">Registra la información que te solicitamos a continuación. Nos interesa conocer más a fondo el funcionamiento de tu idea. </p><br>
           <div class="input-error">{{errorMessage}}</div>
+          <label class="gotham-light bold primary-color-text" for="stage">Etapa de tu idea</label>
+          <div class="input-group col-xs-12">
+            <select class="form-control" [(ngModel)]="project.stage" name="stage">
+              <option *ngFor="let stage of stages" [value]="stage">{{stage}}                    </option>
+            </select>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="info">Enlace a un demo de tu aplicación o código fuente (obligatorio)</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="info" type="url" name="info" aria-label="info" [(ngModel)]="project.info" #infoInput="ngModel" required url>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; infoInput.errors?.required">Este campo es obligatorio</label>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; infoInput.errors?.url">Introduce una url válida</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="doc">Enlace a documentación de tu proyecto </label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="doc" type="url" name="doc" aria-label="doc" [(ngModel)]="user.doc" #docInput="ngModel" url>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; docInput.errors?.url">Introduce una url válida</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="complementary">Material complementario</label>
+          <div class="input-group col-xs-12">
+            <textarea class="form-control" id="doc" name="complementary" aria-label="complementary" [(ngModel)]="user.complementary" #complementaryInput="ngModel" rows="5"></textarea>
+            <div class="primary-color-text">
+              Aquí coloca información complementaria, enlaces o comentarios extra para aclarar más información de tu participación</div>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="country">País</label>
+          <div class="input-group col-xs-12">
+            <select class="form-control" [(ngModel)]="user.country" name="country" (change)="onChangeCountry(user.country)">
+              <option value="0" selected>Selecciona tu país</option>
+              <option *ngFor="let country of countries" [value]="country.country">{{country.country}}</option>
+            </select>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="state">Estado                    </label>
+          <div class="input-group col-xs-12">
+            <select class="form-control" [(ngModel)]="user.state" name="state">
+              <option value="0" selected>Selecciona tu estado</option>
+              <option *ngFor="let state of states" [value]="state">{{state}}</option>
+            </select>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="city">Ciudad</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="city" type="text" name="city" aria-label="city" [(ngModel)]="user.city" #cityInput="ngModel" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; cityInput.errors?.required">Este campo es requerido</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="phone">Teléfono</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="phone" type="phone" name="phone" aria-label="phone" [(ngModel)]="user.phone" #phoneInput="ngModel" required>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; phoneInput.errors?.required">Este campo es requerido</label>
+          </div><br>
+          <label class="gotham-light bold primary-color-text" for="social">Ingresa el enlace de una red social dónde contactarte</label>
+          <div class="input-group col-xs-12">
+            <input class="form-control" id="social" type="social" name="social" aria-label="social" [(ngModel)]="user.social_network" #socialInput="ngModel" required url>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; socialInput.errors?.required">Este campo es requerido</label>
+            <label class="input-error" *ngIf="form.submitted &amp;&amp; socialInput.errors?.url">Esta no es una URL válida</label>
+          </div>
+          <div class="space"></div>
+          <button class="col-xs-12 btn btn-primary btn-large" type="submit">Enviar</button>
+          <div class="space" style="margin-bottom:80px;"></div>
         </div>
-        <!--
-        label.gotham-light.bold.primary-color-text(for="email") Correo electrónico
-        .input-group.col-xs-12
-            input.form-control#email(
-                type='email', 
-                name="email", 
-                aria-label='email',
-                [(ngModel)]='email', 
-                #emailInput="ngModel",
-                required, email)
-            label.input-error(*ngIf="form.submitted && emailInput.errors?.required") Este campo es obligatorio
-            label.input-error(*ngIf="form.submitted && emailInput.errors?.email") Debes introducir un email válido
-        
-        br
-        label.gotham-light.bold.primary-color-text(for="idea") Contraseña
-        .input-group.col-xs-12
-            input.form-control#password(
-                type='password', 
-                name="password", 
-                aria-label='password',
-                #passwordInput="ngModel",
-                [(ngModel)]="password", 
-                required)
-            label.input-error(*ngIf="form.submitted && passwordInput.errors?.required") Este campo es obligatorio
-        br
-        a.primary-color-text([routerLink]="['/recuperar-contrasena']") ¿Olvidaste tu contraseña?
-        
-        .space
-        button.col-xs-12.btn.btn-primary.btn-large(type="submit") Iniciar sesión
-        .space(style="margin-bottom:80px;")
-        -->
       </div>
     </form>
   </div>

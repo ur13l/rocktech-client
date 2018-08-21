@@ -43,6 +43,9 @@ export class SignInComponent implements OnInit {
           if(user.approved) {
             this.route.navigate(['/segunda-etapa-formulario']);
           } 
+          else if (user.idea_complementation) {
+            this.route.navigate(['/tercera-etapa']);
+          }
           else if (user.role == ROLE_ADMIN) {
             this.route.navigate(['/admin-dashboard']);
           } 

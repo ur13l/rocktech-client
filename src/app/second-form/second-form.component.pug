@@ -3,6 +3,8 @@ loading-screen([loading]="loading")
 navbar
 section([@fadeIn])
     .container
+        br
+        stepper([activeStep]="1")
         form((submit)="form.valid && submit($event)", #form="ngForm", id="ngForm")
             br
             br
@@ -13,37 +15,98 @@ section([@fadeIn])
                     .text-center
                         img.img-fluid(src="assets/img/brainrace.png", style="width:70%")                                    
                     br
-                    p.primary-color-text Registra la información que te solicitamos, es importante enviar 
+                    p.primary-color-text Registra la información que te solicitamos a continuación. Nos interesa conocer más a fondo el funcionamiento de tu idea. 
                     br
                     .input-error {{errorMessage}}
-                    
-                //
-                    label.gotham-light.bold.primary-color-text(for="email") Correo electrónico
+                    label.gotham-light.bold.primary-color-text(for="stage") Etapa de tu idea
                     .input-group.col-xs-12
-                        input.form-control#email(
-                            type='email', 
-                            name="email", 
-                            aria-label='email',
-                            [(ngModel)]='email', 
-                            #emailInput="ngModel",
-                            required, email)
-                        label.input-error(*ngIf="form.submitted && emailInput.errors?.required") Este campo es obligatorio
-                        label.input-error(*ngIf="form.submitted && emailInput.errors?.email") Debes introducir un email válido
-                    
+                        select.form-control([(ngModel)]="project.stage", name="stage")
+                            option(*ngFor="let stage of stages", [value]="stage") {{stage}}                    
                     br
-                    label.gotham-light.bold.primary-color-text(for="idea") Contraseña
+                    label.gotham-light.bold.primary-color-text(for="info") Enlace a un demo de tu aplicación o código fuente (obligatorio)
                     .input-group.col-xs-12
-                        input.form-control#password(
-                            type='password', 
-                            name="password", 
-                            aria-label='password',
-                            #passwordInput="ngModel",
-                            [(ngModel)]="password", 
+                        input.form-control#info(
+                            type='url', 
+                            name="info", 
+                            aria-label='info',
+                            [(ngModel)]='project.info', 
+                            #infoInput="ngModel",
+                            required, url)
+                        label.input-error(*ngIf="form.submitted && infoInput.errors?.required") Este campo es obligatorio
+                        label.input-error(*ngIf="form.submitted && infoInput.errors?.url") Introduce una url válida
+                    br
+                    label.gotham-light.bold.primary-color-text(for="doc") Enlace a documentación de tu proyecto 
+                    .input-group.col-xs-12
+                        input.form-control#doc(
+                            type='url', 
+                            name="doc", 
+                            aria-label='doc',
+                            [(ngModel)]='user.doc', 
+                            #docInput="ngModel",
+                            url)
+                        label.input-error(*ngIf="form.submitted && docInput.errors?.url") Introduce una url válida
+                    br
+                    label.gotham-light.bold.primary-color-text(for="complementary") Material complementario
+                    .input-group.col-xs-12
+                        textarea.form-control#doc(
+                            name="complementary", 
+                            aria-label='complementary',
+                            [(ngModel)]='user.complementary', 
+                            #complementaryInput="ngModel",
+                            rows="5",
+                            )
+                        .primary-color-text Aquí coloca información complementaria, enlaces o comentarios extra para 
+                            | aclarar más información de tu participación
+
+                    br
+                    label.gotham-light.bold.primary-color-text(for="country") País
+                    .input-group.col-xs-12
+                        select.form-control([(ngModel)]="user.country", name="country", (change)="onChangeCountry(user.country)")
+                            option(value="0", selected) Selecciona tu país
+                            option(*ngFor="let country of countries", [value]="country.country") {{country.country}}
+                    br
+                    label.gotham-light.bold.primary-color-text(for="state") Estado                    
+                    .input-group.col-xs-12
+                        select.form-control([(ngModel)]="user.state", name="state")
+                            option(value="0", selected) Selecciona tu estado
+                            option(*ngFor="let state of states", [value]="state") {{state}}
+
+                    br
+                    label.gotham-light.bold.primary-color-text(for="city") Ciudad
+                    .input-group.col-xs-12
+                        input.form-control#city(
+                            type='text', 
+                            name="city", 
+                            aria-label='city',
+                            [(ngModel)]='user.city', 
+                            #cityInput="ngModel",
                             required)
-                        label.input-error(*ngIf="form.submitted && passwordInput.errors?.required") Este campo es obligatorio
+                        label.input-error(*ngIf="form.submitted && cityInput.errors?.required") Este campo es requerido
                     br
-                    a.primary-color-text([routerLink]="['/recuperar-contrasena']") ¿Olvidaste tu contraseña?
+                    label.gotham-light.bold.primary-color-text(for="phone") Teléfono
+                    .input-group.col-xs-12
+                        input.form-control#phone(
+                            type='phone', 
+                            name="phone", 
+                            aria-label='phone',
+                            [(ngModel)]='user.phone', 
+                            #phoneInput="ngModel",
+                            required)
+                        label.input-error(*ngIf="form.submitted && phoneInput.errors?.required") Este campo es requerido
+                    br
+                    label.gotham-light.bold.primary-color-text(for="social") Ingresa el enlace de una red social dónde contactarte
+                    .input-group.col-xs-12
+                        input.form-control#social(
+                            type='social', 
+                            name="social", 
+                            aria-label='social',
+                            [(ngModel)]='user.social_network', 
+                            #socialInput="ngModel",
+                            required, url)
+                        label.input-error(*ngIf="form.submitted && socialInput.errors?.required") Este campo es requerido
+                        label.input-error(*ngIf="form.submitted && socialInput.errors?.url") Esta no es una URL válida
                    
                     .space
-                    button.col-xs-12.btn.btn-primary.btn-large(type="submit") Iniciar sesión
+                    button.col-xs-12.btn.btn-primary.btn-large(type="submit") Enviar
                     .space(style="margin-bottom:80px;")
+                

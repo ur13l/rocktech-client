@@ -134,4 +134,15 @@ export class UserService extends BaseService{
             });
     }
 
+    /**
+     * Idea complementation by user
+     * @param user 
+     */
+    complementation(user : User) {
+        return this.http.post<Response<User>>(this.BASE_URL + 'user/idea-complementation', user)
+        .map(response => {
+            return response;
+        });
+    }
+
 }
