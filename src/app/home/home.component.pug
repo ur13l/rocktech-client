@@ -1,12 +1,9 @@
 doctype html
-nav.navbar(style="z-index:2000; background:rgba(0,0,0);")
-    .navbar-brand([routerLink]="['/FOT']", style="background:rgba(0,0,0)") 
-    .navbar-brand(style="margin-right:25px; background:rgba(0,0,0)")
-        a.white-text([routerLink]="['/accede']", *ngIf="!user", style="position:absolute; top:15px; right:15px;")
-            span Iniciar sesión
-    .navbar-brand(style="margin-right:25px; background:rgba(0,0,0)")
-        a.white-text((click)="logout()", *ngIf="user", style="position:absolute; top:15px; right:15px;")
-            span Salir
+
+a.white-text([routerLink]="['/accede']", *ngIf="!user", style="position:absolute; z-index:2000; top:15px; right:15px;")
+    span Iniciar sesión
+a.white-text((click)="logout()", *ngIf="user", style="position:absolute; z-index:2000; top:15px; right:15px;")
+    span Salir
 
 vg-player
     video#myVideo(autoplay, muted, loop)
