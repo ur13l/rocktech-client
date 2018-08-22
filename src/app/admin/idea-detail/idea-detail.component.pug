@@ -22,6 +22,34 @@ navbar
             p.primary-color-text 
                 b.primary-color-text Video: 
                 a([href]="user?.neuron?.project?.video") {{user?.neuron?.project?.video}} 
+            div(*ngIf="user.idea_complementation")
+                p.primary-color-text 
+                    b.primary-color-text Datos complementarios: 
+                    | {{user?.complementary}}
+                p.primary-color-text 
+                    b.primary-color-text Stage: 
+                    | {{user?.neuron?.project?.stage}}
+                p.primary-color-text 
+                    b.primary-color-text Documentación: 
+                    | {{user?.neuron?.project?.doc}}
+                p.primary-color-text 
+                    b.primary-color-text Demo/Código: 
+                    | {{user?.neuron?.project?.info}}
+                p.primary-color-text 
+                    b.primary-color-text Teléfono: 
+                    | {{user?.phone}}
+                p.primary-color-text 
+                    b.primary-color-text Red social: 
+                    | {{user?.social_network}}
+                p.primary-color-text 
+                    b.primary-color-text País: 
+                    | {{user?.country}}
+                p.primary-color-text 
+                    b.primary-color-text Estado: 
+                    | {{user?.state}}
+                p.primary-color-text 
+                    b.primary-color-text Ciudad: 
+                    | {{user?.city}}
             button.primary-button((click)="approve(user.id)", *ngIf="!user?.approved") Aprobar idea
             button.primary-button((click)="validate(user.id)", *ngIf="user?.approved && user?.idea_complementation") Validar idea
 
