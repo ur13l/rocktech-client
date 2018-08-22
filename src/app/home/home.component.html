@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<nav class="navbar navbar-light" style="z-index:20000"><a class="navbar-brand" [routerLink]="['/FOT']"> <a class="fot orbitron-medium">Future of Things</a></a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto"></ul><a class="navbar-text white-text" [routerLink]="['/accede']" *ngIf="!user"><span>Iniciar sesión</span></a><a class="navbar-text white-text" (click)="logout()" *ngIf="user"><span>Salir</span></a>
+  </div>
+</nav>
 <vg-player>
   <video id="myVideo" autoplay muted loop>
     <source src="assets/video/blockchain.mp4" type="video/mp4">        Your browser does not support HTML5 video.

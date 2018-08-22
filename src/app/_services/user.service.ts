@@ -145,4 +145,15 @@ export class UserService extends BaseService{
         });
     }
 
+     /**
+     * Idea approval
+     * @param id 
+     */
+    validate(id : number) {
+        return this.http.post<Response<User>>(this.BASE_URL + 'user/validate', {id: id})
+            .map(response => {
+                return response;
+            });
+    }
+
 }

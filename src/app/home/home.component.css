@@ -36,6 +36,13 @@ a.brainrace:hover {
     -webkit-text-fill-color: transparent;
 }
 
+a.fot:hover {
+    background:rgb(0,183,188);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
 footer {
     position: fixed;
     bottom: 10px;

@@ -45,4 +45,18 @@ export class IdeaDetailComponent implements OnInit {
       )
   }
 
+  /**
+   * Approve the idea to move it to second round
+   */
+  validate(id : number) {
+    this.loading = true;
+    this.userService.validate(id)
+      .subscribe(
+        response => {
+          this.loading = false;
+          this.router.navigate(['/admin-dashboard'])
+        }
+      )
+  }
+
 }

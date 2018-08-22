@@ -23,4 +23,5 @@ navbar
                 b.primary-color-text Video: 
                 a([href]="user?.neuron?.project?.video") {{user?.neuron?.project?.video}} 
             button.primary-button((click)="approve(user.id)", *ngIf="!user?.approved") Aprobar idea
+            button.primary-button((click)="validate(user.id)", *ngIf="user?.approved && user?.idea_complementation") Validar idea
 
