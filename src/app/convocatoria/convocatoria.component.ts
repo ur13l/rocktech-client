@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-convocatoria',
@@ -12,9 +13,12 @@ import { fadeIn } from 'ng-animate';
 })
 export class ConvocatoriaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private title : Title
+  ) { }
 
   ngOnInit() {
+    this.title.setTitle('Brain Race by Rocktech')
   }
 
 }
