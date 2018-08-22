@@ -3,21 +3,20 @@
 <section>
   <div class="container">
     <h1 class="orbitron-medium primary-color-text">Future of things </h1>
-    <div id="eventbrite-widget-container-49395261557"></div>
-    <script type="text/javascript">
-      var exampleCallback = function() {
-          console.log('Order complete!');
-          };
-          window.EBWidgets.createWidget({
-          // Required
-          widgetType: 'checkout',
-          eventId: '49395261557',
-          iframeContainerId: 'eventbrite-widget-container-49395261557',
-          // Optional
-          iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
-          onOrderComplete: exampleCallback  // Method called when an order has successfully completed
-      });
-    </script>
   </div>
-  
+  <div id="eventbrite-widget-container-49395261557"></div>
+  <script type="text/javascript">
+    var exampleCallback = function() {
+        console.log('Order complete!');
+        };
+        window.EBWidgets.createWidget({
+        // Required
+        widgetType: 'checkout',
+        eventId: '49395261557',
+        iframeContainerId: 'eventbrite-widget-container-49395261557',
+        // Optional
+        iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
+        onOrderComplete: exampleCallback  // Method called when an order has successfully completed
+    });
+  </script>
 </section>
