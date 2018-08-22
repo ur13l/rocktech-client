@@ -1,13 +1,12 @@
 doctype html
-nav.navbar.navbar-light(style="z-index:20000")
-  a.navbar-brand([routerLink]="['/FOT']") 
-    a.fot.orbitron-medium Future of Things
-  .collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
-    a.navbar-text.white-text([routerLink]="['/accede']", *ngIf="!user")
-      span Iniciar sesión
-    a.navbar-text.white-text((click)="logout()", *ngIf="user")
-      span Salir
+nav.navbar(style="z-index:20000; background:rgba(0,0,0,0);")
+    .navbar-brand([routerLink]="['/FOT']") 
+        a.fot.orbitron-medium Future of Things
+    .navbar-right(style="margin-right:25px;")
+        a.navbar-text.white-text([routerLink]="['/accede']", *ngIf="!user")
+            span Iniciar sesión
+    a.navbar-text.white-text.navbar-right((click)="logout()", *ngIf="user")
+        span Salir
 
 vg-player
     video#myVideo(autoplay, muted, loop)
