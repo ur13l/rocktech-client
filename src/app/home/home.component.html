@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <nav class="navbar" style="z-index:20000; background:rgba(0,0,0,0);">
   <div class="navbar-brand" [routerLink]="['/FOT']"> <a class="fot orbitron-medium">Future of Things</a></div>
-  <div class="navbar-right" style="margin-right:25px;"><a class="navbar-text white-text" [routerLink]="['/accede']" *ngIf="!user"><span>Iniciar sesión</span></a></div><a class="navbar-text white-text navbar-right" (click)="logout()" *ngIf="user"><span>Salir</span></a>
+  <div class="navbar-brand" style="margin-right:25px;"><a class="white-text" [routerLink]="['/accede']" *ngIf="!user" style="position:absolute; top:15px; right:15px;"><span>Iniciar sesión</span></a></div>
+  <div class="navbar-brand" style="margin-right:25px;"><a class="white-text" (click)="logout()" *ngIf="user" style="position:absolute; top:15px; right:15px;"><span>Salir</span></a></div>
 </nav>
 <vg-player>
   <video id="myVideo" autoplay muted loop>
