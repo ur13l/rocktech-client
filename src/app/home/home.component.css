@@ -3,6 +3,9 @@ ul {
     padding:0;
 }
 
+navbar{    background:black;
+}
+
 li {
     margin: 0;
     display: inline-block;
@@ -37,9 +40,7 @@ a.brainrace:hover {
 }
 
 a.fot:hover {
-    background:rgb(0,183,188);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color:rgb(0,183,188);
 }
 
 

@@ -1,11 +1,10 @@
 doctype html
-nav.navbar(style="z-index:20000; background:rgba(0,0,0,0);")
-    .navbar-brand([routerLink]="['/FOT']") 
-        a.fot.orbitron-medium Future of Things
-    .navbar-brand(style="margin-right:25px;")
+nav.navbar(style="z-index:2000; background:rgba(0,0,0);")
+    .navbar-brand([routerLink]="['/FOT']", style="background:rgba(0,0,0)") 
+    .navbar-brand(style="margin-right:25px; background:rgba(0,0,0)")
         a.white-text([routerLink]="['/accede']", *ngIf="!user", style="position:absolute; top:15px; right:15px;")
             span Iniciar sesión
-    .navbar-brand(style="margin-right:25px;")
+    .navbar-brand(style="margin-right:25px; background:rgba(0,0,0)")
         a.white-text((click)="logout()", *ngIf="user", style="position:absolute; top:15px; right:15px;")
             span Salir
 
@@ -19,6 +18,8 @@ vg-player
         .links 
             a.brainrace.brain-race-font([routerLink]="['/brain-race']") Brain Race
             //a([routerLink]="['/contacto']") Contacto
+            a.fot.orbitron-medium([routerLink]="['/FOT']") Future of Things
+            
 
 footer
     a(href="https://goo.gl/maps/tzDc1qu8wNw", target="_blank")

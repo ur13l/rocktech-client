@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<nav class="navbar" style="z-index:20000; background:rgba(0,0,0,0);">
-  <div class="navbar-brand" [routerLink]="['/FOT']"> <a class="fot orbitron-medium">Future of Things</a></div>
-  <div class="navbar-brand" style="margin-right:25px;"><a class="white-text" [routerLink]="['/accede']" *ngIf="!user" style="position:absolute; top:15px; right:15px;"><span>Iniciar sesión</span></a></div>
-  <div class="navbar-brand" style="margin-right:25px;"><a class="white-text" (click)="logout()" *ngIf="user" style="position:absolute; top:15px; right:15px;"><span>Salir</span></a></div>
+<nav class="navbar" style="z-index:2000; background:rgba(0,0,0);">
+  <div class="navbar-brand" [routerLink]="['/FOT']" style="background:rgba(0,0,0)"> </div>
+  <div class="navbar-brand" style="margin-right:25px; background:rgba(0,0,0)"><a class="white-text" [routerLink]="['/accede']" *ngIf="!user" style="position:absolute; top:15px; right:15px;"><span>Iniciar sesión</span></a></div>
+  <div class="navbar-brand" style="margin-right:25px; background:rgba(0,0,0)"><a class="white-text" (click)="logout()" *ngIf="user" style="position:absolute; top:15px; right:15px;"><span>Salir</span></a></div>
 </nav>
 <vg-player>
   <video id="myVideo" autoplay muted loop>
@@ -13,7 +13,7 @@
   <div class="center-container">
     <h1 class="gotham-light">R O C K T E C H</h1>
     <div class="links"> <a class="brainrace brain-race-font" [routerLink]="['/brain-race']">Brain Race</a>
-      <!--a([routerLink]="['/contacto']") Contacto-->
+      <!--a([routerLink]="['/contacto']") Contacto--><a class="fot orbitron-medium" [routerLink]="['/FOT']">Future of Things</a>
     </div>
   </div>
 </div>
