@@ -15,8 +15,10 @@
               <p class="primary-color-text">Miembros: <span class="primary-color-text" *ngFor="let member of user.neuron.members; let index = index">{{member.name}}{{index == user.neuron.members.length - 1 ? '' : ', '}}</span></p>
             </div>
             <div class="col-sm-12 col-md-4 primary-color-text vcenter text-right">
-              <div class="primary-color-text" *ngIf="!user.approved">Pendiente de aprobar</div>
-              <div class="primary-color-text" *ngIf="user.approved">Idea aprobada</div>
+              <div class="primary-color-text" *ngIf="!user.approved">Pendiente de aprobar (1ra etapa)</div>
+              <div class="primary-color-text" *ngIf="user.approved &amp;&amp; !user.idea_complementation">Idea aprobada</div>
+              <div class="primary-color-text" *ngIf="user.idea_complementation &amp;&amp; !user.idea_validation ">Idea complementada (2da etapa)</div>
+              <div class="primary-color-text" *ngIf="user.idea_validation ">Idea validada</div>
             </div>
           </div>
         </div>

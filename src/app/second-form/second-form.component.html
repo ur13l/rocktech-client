@@ -11,28 +11,30 @@
           <div class="text-center"><img class="img-fluid" src="assets/img/brainrace.png" style="width:70%"></div><br>
           <p class="primary-color-text">Registra la información que te solicitamos a continuación. Nos interesa conocer más a fondo el funcionamiento de tu idea. </p><br>
           <div class="input-error">{{errorMessage}}</div>
-          <label class="gotham-light bold primary-color-text" for="stage">Etapa de tu idea</label>
+          <label class="gotham-light bold primary-color-text" for="stage">Stage de la idea</label>
           <div class="input-group col-xs-12">
             <select class="form-control" [(ngModel)]="project.stage" name="stage">
               <option *ngFor="let stage of stages" [value]="stage">{{stage}}                    </option>
             </select>
           </div><br>
-          <label class="gotham-light bold primary-color-text" for="info">Enlace a un demo de tu aplicación o código fuente (obligatorio)</label>
+          <label class="gotham-light bold primary-color-text" for="info">Enlace a un demo del sistema o código fuente</label>
           <div class="input-group col-xs-12">
             <input class="form-control" id="info" type="url" name="info" aria-label="info" [(ngModel)]="project.info" #infoInput="ngModel" required url>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; infoInput.errors?.required">Este campo es obligatorio</label>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; infoInput.errors?.url">Introduce una url válida</label>
           </div><br>
-          <label class="gotham-light bold primary-color-text" for="doc">Enlace a documentación de tu proyecto </label>
+          <label class="gotham-light bold primary-color-text" for="doc">Enlace a documentación del proyecto (Opcional) </label>
           <div class="input-group col-xs-12">
             <input class="form-control" id="doc" type="url" name="doc" aria-label="doc" [(ngModel)]="project.doc" #docInput="ngModel" url>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; docInput.errors?.url">Introduce una url válida</label>
           </div><br>
-          <label class="gotham-light bold primary-color-text" for="complementary">Material complementario</label>
+          <label class="gotham-light bold primary-color-text" for="complementary">Material complementario (Opcional)</label>
           <div class="input-group col-xs-12">
             <textarea class="form-control" id="doc" name="complementary" aria-label="complementary" [(ngModel)]="user.complementary" #complementaryInput="ngModel" rows="5"></textarea>
             <div class="primary-color-text">
-              Aquí coloca información complementaria, enlaces o comentarios extra para aclarar más información de tu participación</div>
+              Información complementaria, enlaces o comentarios extra para aclarar más información de su participación. Nos interesa saber cómo están 
+              utilizando el blockchain en su idea.
+            </div>
           </div><br>
           <label class="gotham-light bold primary-color-text" for="country">País</label>
           <div class="input-group col-xs-12">

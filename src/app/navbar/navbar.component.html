@@ -1,6 +1,5 @@
 
 <nav class="navbar navbar-light bg-primary-color"><a class="navbar-brand" [routerLink]="['/']"> <span>R O C K T E C H</span></a>
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto"></ul><a class="navbar-text white-text" [routerLink]="['/accede']" *ngIf="!user"><span>Iniciar sesión</span></a><a class="navbar-text white-text" (click)="logout()" *ngIf="user"><span>Salir</span></a>
-  </div>
+  <div class="navbar-brand" style="margin-right:25px;"><a class="white-text" [routerLink]="['/accede']" *ngIf="!user" style="position:absolute; top:15px; right:15px;"><span>Iniciar sesión</span></a></div>
+  <div class="navbar-brand" style="margin-right:25px;"><a class="white-text" (click)="logout()" *ngIf="user" style="position:absolute; top:15px; right:15px;"><span>Salir</span></a></div>
 </nav>

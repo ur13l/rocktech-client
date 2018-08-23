@@ -15,5 +15,7 @@ navbar
                             p.primary-color-text Miembros: 
                                 span.primary-color-text(*ngFor="let member of user.neuron.members; let index = index") {{member.name}}{{index == user.neuron.members.length - 1 ? '' : ', '}}
                         .col-sm-12.col-md-4.primary-color-text.vcenter.text-right
-                            .primary-color-text(*ngIf="!user.approved") Pendiente de aprobar
-                            .primary-color-text(*ngIf="user.approved") Idea aprobada
+                            .primary-color-text(*ngIf="!user.approved") Pendiente de aprobar (1ra etapa)
+                            .primary-color-text(*ngIf="user.approved && !user.idea_complementation") Idea aprobada
+                            .primary-color-text(*ngIf="user.idea_complementation && !user.idea_validation ") Idea complementada (2da etapa)
+                            .primary-color-text(*ngIf="user.idea_validation ") Idea validada

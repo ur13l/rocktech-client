@@ -3,6 +3,9 @@ ul {
     padding:0;
 }
 
+navbar{    background:black;
+}
+
 li {
     margin: 0;
     display: inline-block;
@@ -35,6 +38,11 @@ a.brainrace:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+a.fot:hover {
+    color:rgb(0,183,188);
+}
+
 
 footer {
     position: fixed;

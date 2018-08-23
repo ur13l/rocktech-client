@@ -18,12 +18,12 @@ section([@fadeIn])
                     p.primary-color-text Registra la información que te solicitamos a continuación. Nos interesa conocer más a fondo el funcionamiento de tu idea. 
                     br
                     .input-error {{errorMessage}}
-                    label.gotham-light.bold.primary-color-text(for="stage") Etapa de tu idea
+                    label.gotham-light.bold.primary-color-text(for="stage") Stage de la idea
                     .input-group.col-xs-12
                         select.form-control([(ngModel)]="project.stage", name="stage")
                             option(*ngFor="let stage of stages", [value]="stage") {{stage}}                    
                     br
-                    label.gotham-light.bold.primary-color-text(for="info") Enlace a un demo de tu aplicación o código fuente (obligatorio)
+                    label.gotham-light.bold.primary-color-text(for="info") Enlace a un demo del sistema o código fuente
                     .input-group.col-xs-12
                         input.form-control#info(
                             type='url', 
@@ -35,7 +35,7 @@ section([@fadeIn])
                         label.input-error(*ngIf="form.submitted && infoInput.errors?.required") Este campo es obligatorio
                         label.input-error(*ngIf="form.submitted && infoInput.errors?.url") Introduce una url válida
                     br
-                    label.gotham-light.bold.primary-color-text(for="doc") Enlace a documentación de tu proyecto 
+                    label.gotham-light.bold.primary-color-text(for="doc") Enlace a documentación del proyecto (Opcional) 
                     .input-group.col-xs-12
                         input.form-control#doc(
                             type='url', 
@@ -46,7 +46,7 @@ section([@fadeIn])
                             url)
                         label.input-error(*ngIf="form.submitted && docInput.errors?.url") Introduce una url válida
                     br
-                    label.gotham-light.bold.primary-color-text(for="complementary") Material complementario
+                    label.gotham-light.bold.primary-color-text(for="complementary") Material complementario (Opcional)
                     .input-group.col-xs-12
                         textarea.form-control#doc(
                             name="complementary", 
@@ -55,8 +55,9 @@ section([@fadeIn])
                             #complementaryInput="ngModel",
                             rows="5",
                             )
-                        .primary-color-text Aquí coloca información complementaria, enlaces o comentarios extra para 
-                            | aclarar más información de tu participación
+                        .primary-color-text Información complementaria, enlaces o comentarios extra para 
+                            | aclarar más información de su participación. Nos interesa saber cómo están 
+                            | utilizando el blockchain en su idea.
 
                     br
                     label.gotham-light.bold.primary-color-text(for="country") País

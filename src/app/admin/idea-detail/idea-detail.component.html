@@ -14,7 +14,19 @@
         <li class="primary-color-text" *ngFor="let member of user?.neuron?.members">{{member.name}}</li>
       </ul>
       <p class="primary-color-text"> <b class="primary-color-text">Video: </b><a [href]="user?.neuron?.project?.video">{{user?.neuron?.project?.video}} </a></p>
+      <div *ngIf="user.idea_complementation">
+        <p class="primary-color-text"> <b class="primary-color-text">Datos complementarios: </b>{{user?.complementary}}</p>
+        <p class="primary-color-text"> <b class="primary-color-text">Stage: </b>{{user?.neuron?.project?.stage}}</p>
+        <p class="primary-color-text"> <b class="primary-color-text">Documentación: </b>{{user?.neuron?.project?.doc}}</p>
+        <p class="primary-color-text"> <b class="primary-color-text">Demo/Código: </b>{{user?.neuron?.project?.info}}</p>
+        <p class="primary-color-text"> <b class="primary-color-text">Teléfono: </b>{{user?.phone}}</p>
+        <p class="primary-color-text"> <b class="primary-color-text">Red social: </b>{{user?.social_network}}</p>
+        <p class="primary-color-text"> <b class="primary-color-text">País: </b>{{user?.country}}</p>
+        <p class="primary-color-text"> <b class="primary-color-text">Estado: </b>{{user?.state}}</p>
+        <p class="primary-color-text"> <b class="primary-color-text">Ciudad: </b>{{user?.city}}</p>
+      </div>
       <button class="primary-button" (click)="approve(user.id)" *ngIf="!user?.approved">Aprobar idea</button>
+      <button class="primary-button" (click)="validate(user.id)" *ngIf="user?.approved &amp;&amp; user?.idea_complementation">Validar idea</button>
     </div>
   </div>
 </div>

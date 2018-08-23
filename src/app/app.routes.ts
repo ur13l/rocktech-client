@@ -13,6 +13,8 @@ import { AdminGuardGuard } from "./_guards/admin-guard.guard";
 import { AdminDashboardComponent } from "./admin/admin-dashboard/admin-dashboard.component";
 import { IdeaDetailComponent } from "./admin/idea-detail/idea-detail.component";
 import { SecondStageCompleteComponent } from "./second-stage-complete/second-stage-complete.component";
+import { FotComponent } from "./fot/fot.component";
+import { LoggedInRedirectGuard } from "./_guards/logged-in-redirect.guard";
 
 
 export const routes = [
@@ -21,16 +23,17 @@ export const routes = [
     { path:'brain-race', component: ConvocatoriaComponent },
     
     //No session routes
-    { path:'', canActivate: [RedirectAuthenticatedGuard], children: [
+    { path:'', canActivate: [], children: [
         { path:'registro', component: RegistroComponent },
         { path:'iniciar-sesion', component: SignInComponent},
         { path:'accede', component: SignInComponent},
         { path:'recuperar-contrasena', component: RecoverPasswordComponent },
         { path:'restablecer-contrasena/:token', component: RestorePasswordComponent },
         { path:'activar/:token', component: ActivateUserComponent },        
+        { path:'FOT', component: FotComponent },        
     ]},
     //Session routes
-    { path:'', canActivate: [LoggedInGuardGuard], children: [
+    { path:'', canActivate: [LoggedInRedirectGuard], children: [
         { path:'segunda-etapa', component: FirstStageCompleteComponent },
         { path:'segunda-etapa-formulario', component: SecondFormComponent },
         { path:'tercera-etapa', component: SecondStageCompleteComponent },

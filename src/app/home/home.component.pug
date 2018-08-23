@@ -1,4 +1,10 @@
 doctype html
+
+a.white-text([routerLink]="['/accede']", *ngIf="!user", style="position:absolute; z-index:2000; top:15px; right:15px;")
+    span Iniciar sesión
+a.white-text((click)="logout()", *ngIf="user", style="position:absolute; z-index:2000; top:15px; right:15px;")
+    span Salir
+
 vg-player
     video#myVideo(autoplay, muted, loop)
         source(src='assets/video/blockchain.mp4', type='video/mp4')
@@ -9,6 +15,8 @@ vg-player
         .links 
             a.brainrace.brain-race-font([routerLink]="['/brain-race']") Brain Race
             //a([routerLink]="['/contacto']") Contacto
+            a.fot.orbitron-medium([routerLink]="['/FOT']") Future of Things
+            
 
 footer
     a(href="https://goo.gl/maps/tzDc1qu8wNw", target="_blank")

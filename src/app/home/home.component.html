@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><a class="white-text" [routerLink]="['/accede']" *ngIf="!user" style="position:absolute; z-index:2000; top:15px; right:15px;"><span>Iniciar sesión</span></a><a class="white-text" (click)="logout()" *ngIf="user" style="position:absolute; z-index:2000; top:15px; right:15px;"><span>Salir</span></a>
 <vg-player>
   <video id="myVideo" autoplay muted loop>
     <source src="assets/video/blockchain.mp4" type="video/mp4">        Your browser does not support HTML5 video.
@@ -8,7 +8,7 @@
   <div class="center-container">
     <h1 class="gotham-light">R O C K T E C H</h1>
     <div class="links"> <a class="brainrace brain-race-font" [routerLink]="['/brain-race']">Brain Race</a>
-      <!--a([routerLink]="['/contacto']") Contacto-->
+      <!--a([routerLink]="['/contacto']") Contacto--><a class="fot orbitron-medium" [routerLink]="['/FOT']">Future of Things</a>
     </div>
   </div>
 </div>

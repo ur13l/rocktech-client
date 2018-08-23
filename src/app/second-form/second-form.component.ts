@@ -6,6 +6,7 @@ import { Project } from '../_models/project';
 import { UserService } from '../_services/user.service';
 import { CountryService } from '../_services/country.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-second-form',
@@ -32,7 +33,8 @@ export class SecondFormComponent implements OnInit {
   constructor(
     private userService : UserService,
     private countryService : CountryService,
-    private router : Router
+    private router : Router,
+    private title : Title
   ) { }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class SecondFormComponent implements OnInit {
     this.project.stage = "Early development";
     this.user.country = '0';
     this.user.state = '0';
+    this.title.setTitle('Complementar información - Brain Race')
     this.countryService.getCountries().subscribe(
       response => {
         this.countries = response.countries;

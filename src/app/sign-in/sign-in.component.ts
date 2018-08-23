@@ -40,15 +40,17 @@ export class SignInComponent implements OnInit {
         if(response.data) {
           this.loading = false;
           let user = response.data;
-          if(user.approved) {
-            this.route.navigate(['/segunda-etapa-formulario']);
-          } 
-          else if (user.idea_complementation) {
-            this.route.navigate(['/tercera-etapa']);
-          }
-          else if (user.role == ROLE_ADMIN) {
+          if (user.role == ROLE_ADMIN) {
             this.route.navigate(['/admin-dashboard']);
           } 
+          else if(user.approved && !user.idea_complementation) {
+             console.log(user);
+            this.route.navigate(['/segunda-etapa-formulario']);
+          } 
+          else if (user.idea_complementation && !user.idea_validation) {
+            this.route.navigate(['/tercera-etapa']);
+          }
+          
           else {
             this.route.navigate(['/segunda-etapa']);
           }        

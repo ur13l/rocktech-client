@@ -1,10 +1,10 @@
 nav.navbar.navbar-light.bg-primary-color
   a.navbar-brand([routerLink]="['/']") 
     span R O C K T E C H
-  .collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
-    a.navbar-text.white-text([routerLink]="['/accede']", *ngIf="!user")
-      span Iniciar sesión
-    a.navbar-text.white-text((click)="logout()", *ngIf="user")
-      span Salir
+  .navbar-brand(style="margin-right:25px;")
+        a.white-text([routerLink]="['/accede']", *ngIf="!user", style="position:absolute; top:15px; right:15px;")
+            span Iniciar sesión
+  .navbar-brand(style="margin-right:25px;")
+      a.white-text((click)="logout()", *ngIf="user", style="position:absolute; top:15px; right:15px;")
+          span Salir
 
