@@ -25,7 +25,7 @@
           </div><br>
           <label class="gotham-light bold primary-color-text" for="doc">Enlace a documentación de tu proyecto </label>
           <div class="input-group col-xs-12">
-            <input class="form-control" id="doc" type="url" name="doc" aria-label="doc" [(ngModel)]="user.doc" #docInput="ngModel" url>
+            <input class="form-control" id="doc" type="url" name="doc" aria-label="doc" [(ngModel)]="project.doc" #docInput="ngModel" url>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; docInput.errors?.url">Introduce una url válida</label>
           </div><br>
           <label class="gotham-light bold primary-color-text" for="complementary">Material complementario</label>
