@@ -22,6 +22,8 @@ export class RegistroComponent implements OnInit {
   public project : Project;
   public loading : boolean = false;
   public errorMessage : string;
+  public privacy : boolean = false;
+
   @ViewChild('form') public form : FormGroup;
 
 
@@ -39,7 +41,6 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0);
-
   }
 
   /** 

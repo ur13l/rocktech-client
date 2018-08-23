@@ -15,12 +15,14 @@ import { IdeaDetailComponent } from "./admin/idea-detail/idea-detail.component";
 import { SecondStageCompleteComponent } from "./second-stage-complete/second-stage-complete.component";
 import { FotComponent } from "./fot/fot.component";
 import { LoggedInRedirectGuard } from "./_guards/logged-in-redirect.guard";
+import { PrivacyComponent } from "./privacy/privacy.component";
 
 
 export const routes = [
     //General routes
     { path:'', component: HomeComponent },
     { path:'brain-race', component: ConvocatoriaComponent },
+    { path:'privacidad', component: PrivacyComponent },
     
     //No session routes
     { path:'', canActivate: [], children: [

@@ -8,7 +8,7 @@ navbar
         stepper([activeStep]="0")
         br
         br
-        form((submit)="form.valid && submit($event)", #form="ngForm", id="ngForm")
+        form((submit)="form.valid && privacy && submit($event)", #form="ngForm", id="ngForm")
             .row.hidden-md.hidden-lg
                 .col-xs-12
                     h1.primary-color-text Completa el formulario de registro
@@ -150,6 +150,14 @@ navbar
                     span.light.primary-color-text Puedes subir tu video en el formato y plataforma que desees (Google Drive, WeTransfer, YouTube, etc.),  
                         | solamente necesitas proporcionarnos un enlace público para consultarlo. El máximo de tiempo por video es de 2 minutos.
                     br
+                    br
+                    input#privacy(type="checkbox", [(ngModel)]='privacy', name='privacy')
+                    label.primary-color-text(for="privacy") Acepto el 
+                        a([routerLink]="['/privacidad']", target="_blank") contrato de confidencialidad.
+                    br
+                    label.input-error(*ngIf="form.submitted && !privacy", ngDefaultControl) Este campo es obligatorio
+                    
                     button.col-xs-12.btn.btn-primary.btn-large(type="submit") Registrar
+                
 
 app-footer

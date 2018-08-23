@@ -5,7 +5,7 @@ section([@fadeIn])
     .container
         br
         stepper([activeStep]="1")
-        form((submit)="form.valid && submit($event)", #form="ngForm", id="ngForm")
+        form((submit)="form.valid && privacy && submit($event)", #form="ngForm", id="ngForm")
             br
             br
             .row.text-center
@@ -106,7 +106,14 @@ section([@fadeIn])
                             required, url)
                         label.input-error(*ngIf="form.submitted && socialInput.errors?.required") Este campo es requerido
                         label.input-error(*ngIf="form.submitted && socialInput.errors?.url") Esta no es una URL válida
-                   
+                    br
+                    br
+                    input#privacy(type="checkbox", [(ngModel)]='privacy', name='privacy')
+                    label.primary-color-text(for="privacy") Acepto el 
+                        a([routerLink]="['/privacidad']", target="_blank") contrato de confidencialidad.
+                    br
+                    label.input-error(*ngIf="form.submitted && !privacy", ngDefaultControl) Este campo es obligatorio
+                    
                     .space
                     button.col-xs-12.btn.btn-primary.btn-large(type="submit") Enviar
                     .space(style="margin-bottom:80px;")

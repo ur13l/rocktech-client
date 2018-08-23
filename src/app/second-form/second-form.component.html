@@ -4,7 +4,7 @@
 <section [@fadeIn]>
   <div class="container"><br>
     <stepper [activeStep]="1"></stepper>
-    <form (submit)="form.valid &amp;&amp; submit($event)" #form="ngForm" id="ngForm"><br><br>
+    <form (submit)="form.valid &amp;&amp; privacy &amp;&amp; submit($event)" #form="ngForm" id="ngForm"><br><br>
       <div class="row text-center"></div><br>
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 form-container" style="padding:30px">
@@ -65,7 +65,10 @@
             <input class="form-control" id="social" type="social" name="social" aria-label="social" [(ngModel)]="user.social_network" #socialInput="ngModel" required url>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; socialInput.errors?.required">Este campo es requerido</label>
             <label class="input-error" *ngIf="form.submitted &amp;&amp; socialInput.errors?.url">Esta no es una URL válida</label>
-          </div>
+          </div><br><br>
+          <input id="privacy" type="checkbox" [(ngModel)]="privacy" name="privacy">
+          <label class="primary-color-text" for="privacy">Acepto el <a [routerLink]="['/privacidad']" target="_blank">contrato de confidencialidad.</a></label><br>
+          <label class="input-error" *ngIf="form.submitted &amp;&amp; !privacy" ngDefaultControl>Este campo es obligatorio</label>
           <div class="space"></div>
           <button class="col-xs-12 btn btn-primary btn-large" type="submit">Enviar</button>
           <div class="space" style="margin-bottom:80px;"></div>

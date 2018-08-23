@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CKEditorModule } from 'ng2-ckeditor';
-
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
@@ -38,6 +37,7 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { IdeaDetailComponent } from './admin/idea-detail/idea-detail.component';
 import { SecondStageCompleteComponent } from './second-stage-complete/second-stage-complete.component';
 import { FotComponent } from './fot/fot.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 
 @NgModule({
@@ -61,7 +61,8 @@ import { FotComponent } from './fot/fot.component';
     AdminDashboardComponent,
     IdeaDetailComponent,
     SecondStageCompleteComponent,
-    FotComponent
+    FotComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +75,7 @@ import { FotComponent } from './fot/fot.component';
     HttpClientModule,
     BrowserAnimationsModule,
     CKEditorModule,
+    PdfViewerModule,
     RouterModule.forRoot(routes),
 
   ],

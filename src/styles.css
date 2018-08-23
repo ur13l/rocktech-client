@@ -255,3 +255,25 @@ option:not(:checked) {
     background-color: white; 
     color:#000;
 }
+
+input[type="checkbox"] {
+    display: none !important;
+  }
+  
+  input[type="checkbox"]+label::before {
+    position: relative;
+    content: " ";
+    display: inline-block;
+    vertical-align: bottom;
+    width: 22px;
+    height: 22px;
+    border: 1px solid grey;
+    top: 4px;
+    margin: 0 10px 0 0;
+  }
+  
+  input[type="checkbox"]:checked+label::before {
+    content: "✔";
+    text-align: center;
+    line-height: 22px;
+  }
