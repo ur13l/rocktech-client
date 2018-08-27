@@ -1,14 +1,14 @@
-<!DOCTYPE html><a class="white-text" [routerLink]="['/accede']" *ngIf="!user" style="position:absolute; z-index:2000; top:15px; right:15px;"><span>Iniciar sesión</span></a><a class="white-text" (click)="logout()" *ngIf="user" style="position:absolute; z-index:2000; top:15px; right:15px;"><span>Salir</span></a>
+<!DOCTYPE html><a class="white-text crowdfunding avenir-medium action-btn" href="https://www.dlsvc.com.mx" target="_blank"> <span>Crowdfunding</span></a><a class="white-text" [routerLink]="['/accede']" *ngIf="!user" style="position:absolute; z-index:2000; top:15px; right:15px;"><span>Participantes</span></a><a class="white-text" (click)="logout()" *ngIf="user" style="position:absolute; z-index:2000; top:15px; right:15px;"><span>Salir</span></a>
 <vg-player>
   <video id="myVideo" autoplay muted loop>
-    <source src="assets/video/blockchain.mp4" type="video/mp4">        Your browser does not support HTML5 video.
+    <source src="assets/video/blockchain.mp4" type="video/mp4">Your browser does not support HTML5 video.
   </video>
 </vg-player>
 <div class="general-container" [@fadeIn]>
   <div class="center-container">
     <h1 class="gotham-light">R O C K T E C H</h1>
-    <div class="links"> <a class="brainrace brain-race-font" [routerLink]="['/brain-race']">Brain Race</a>
-      <!--a([routerLink]="['/contacto']") Contacto--><a class="fot orbitron-medium" [routerLink]="['/FOT']">Future of Things</a><a class="crowdfunding avenir-medium" href="https://www.dlsvc.com.mx" target="_blank"> Crowdfunding</a>
+    <div class="links"> <a class="brainrace brain-race-font" [routerLink]="['/brain-race']">Brain Race</a><a class="fot orbitron-medium" [routerLink]="['/FOT']">Future of Things</a>
+      <!--a.crowdfunding.avenir-medium(href="https://www.dlsvc.com.mx", target="_blank")  Crowdfunding-->
     </div>
   </div>
 </div>

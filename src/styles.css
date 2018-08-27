@@ -52,6 +52,19 @@ html, body{
     color: #2895B9;
 }
 
+.action-btn {
+    background: #2895B9;
+    position:absolute; 
+    z-index:2000; 
+    top:15px; 
+    padding:15px; 
+    left:15px;
+    border-radius: 10px;
+}
+
+.action-btn:hover {
+    background: #2895B9;
+}
 
 
 .light-color-text {
