@@ -3,7 +3,7 @@ nav.navbar.navbar-light.bg-primary-color
     span R O C K T E C H
   .navbar-brand(style="margin-right:25px;")
         a.white-text([routerLink]="['/accede']", *ngIf="!user", style="position:absolute; top:15px; right:15px;")
-            span Iniciar sesión
+            span Participantes
   .navbar-brand(style="margin-right:25px;")
       a.white-text((click)="logout()", *ngIf="user", style="position:absolute; top:15px; right:15px;")
           span Salir
